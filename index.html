@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title>Subtitles</title> 
+        <title>My Github page</title> 
         <link rel="stylesheet" type="text/css" href="style.css">
         <script src="jquery-3.2.1.min.js"></script>
     </head>
@@ -20,8 +20,7 @@
 
                 $({blurRadius: 100}).animate({blurRadius: 0}, {
                     duration: 5000,
-                    easing: 'swing', // or "linear"
-                                    // use jQuery UI or Easing plugin for more options
+                    easing: 'swing',
                     step: function() {
                         $('img').css({
                             "-webkit-filter": "blur("+this.blurRadius+"px)",
