@@ -46,7 +46,7 @@ const timeline = gsap.timeline({
     trigger: ".landing",
     toggleActions: 'restart none none none',
     scrub: true,
-    markers: true,
+    markers: false,
     start: "90% top",
     end: "300px top",
     id: "start-bg"
