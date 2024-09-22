@@ -4,6 +4,16 @@ $(document).ready(function () {
 });
 
 
+const lenis = new Lenis();
+
+lenis.on('scroll', ScrollTrigger.update);
+
+gsap.ticker.add((time)=>{
+  lenis.raf(time * 1000)
+});
+
+gsap.ticker.lagSmoothing(0);
+
 let container = document.querySelector('.landing');
 
 gsap.to(".home", {
@@ -13,8 +23,8 @@ gsap.to(".home", {
     trigger: ".landing",
     scrub: true,
     markers: false,
-    start: "50% 0%",
-    end: `bottom 30%`,
+    start: "30% 0%",
+    end: `bottom 50%`,
   }
 });
 
@@ -40,20 +50,20 @@ gsap.to(".bg_video", {
   }
 });
 
-
+/*
 const timeline = gsap.timeline({
   scrollTrigger: {
     trigger: ".landing",
     toggleActions: 'restart none none none',
     scrub: true,
-    markers: false,
+    markers: true,
     start: "90% top",
-    end: "300px top",
+    end: "bottom top",
     id: "start-bg"
   }
 })
  .to(".portrait", {
-  y: -230,
+  y: -1030,
   duration: 2,
   ease: "power1.out"
- });
+ });*/

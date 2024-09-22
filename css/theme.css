@@ -90,6 +90,12 @@ html, body {
 	transform: translateY(-50%);
 }
 
+@media (max-width: 950px) {
+	.left_menu {
+		left: 0.1em !important;
+	}
+}
+
 .li_text {
 	color: white;
     font-family: "SonyCam Original", sans-serif;
@@ -154,20 +160,15 @@ html, body {
 	transition: width 2s, height 2s;
 }
 
+
 .bottom_panel {
 	position: absolute;
 	bottom: 0.8em;
 	left: 50%;
 	transform: translateX(-50%);
-}
-
-.bottom_panel menu li {
-	color: white;
-    font-family: "SonyCam Original", sans-serif;
-	font-size: 0.2em;
-	text-transform: uppercase;
-	letter-spacing: 0.05em;
-	list-style-type: none;
+	justify-content: center;
+	width: 70%;
+	display: flex;
 }
 
 
@@ -180,6 +181,44 @@ html, body {
 	top: auto;
 	left: auto;
 	opacity: 0;
+}
+
+.contact_menu {
+	width: 90%;
+	display: flex;
+}
+
+.contact_li {
+	flex: auto;
+	text-align: center;
+	display: flex;
+}
+
+.contact_li a {
+	color: white;
+    font-family: "SonyCam Original", sans-serif;
+	font-size: 0.18em;
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+	text-decoration: none;
+	flex: auto;
+}
+
+@media (max-width: 1284px) {
+	.contact_li a {
+		font-size: 0.18em !important;
+	}
+}
+
+@media (max-width: 950px) {
+	.contact_menu {
+		flex-direction: column;
+	}
+
+	.contact_li a {
+		padding: 7px;
+	}
+
 }
 
 
@@ -344,7 +383,7 @@ html, body {
 .quote a {
 	color: white;
     font-family: "SonyCam Original", sans-serif;
-	font-size: 0.9em;
+	font-size: 0.75em;
 	text-transform: uppercase;
 	letter-spacing: 0.05em;
 	text-decoration: none;
