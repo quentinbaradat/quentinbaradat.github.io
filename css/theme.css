@@ -1,0 +1,456 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Zilla+Slab+Highlight:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Roboto+Slab:wght@100..900&display=swap');
+@import url('../font/Anton-Regular.ttf');
+@import url('../font/sonycam-original.ttf');
+
+*, body {
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    scrollbar-width: thin;
+    scrollbar-color: #FFE500 transparent;
+    background-color: #0C0C0C;
+    overflow-x: hidden !important;
+}
+
+
+.wrapper > section {
+    width: 100svw;
+	height: 100svh;
+    overflow: hidden;
+    position: relative;
+}
+
+.portrait {
+	background-color: #0C0C0C;
+	z-index: 999;
+}
+
+.sub_sections {
+    position: absolute;
+	inset: 0;
+	height: 100%;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.home {
+    position: absolute;
+	height: 68vh;
+	width: 78vw;
+	justify-content: center;
+	align-items: center;
+	top: auto;
+	left: auto;
+}
+
+.right_panel {
+	position: absolute;
+	top: 0.8em;
+	right: 0.8em;
+}
+
+.recording {
+    color: red;
+    font-family: "SonyCam Original", sans-serif;
+    font-size: 0.3em;
+    text-transform: uppercase;
+	animation: blink 3s linear infinite;
+	letter-spacing: 0.1em;
+}
+
+@keyframes blink {
+	40% {
+		opacity: 1;
+	}
+
+	45% {
+		opacity: 0.5
+	}
+	50% {
+		opacity: 0;
+	}
+	55% {
+		opacity: 0.5;
+	}
+	60% {
+		opacity: 1;
+	}
+}
+
+.left_menu {
+	position: absolute;
+	top: 50%;
+	left: 0.8em;
+	transform: translateY(-50%);
+}
+
+.li_text {
+	color: white;
+    font-family: "SonyCam Original", sans-serif;
+	font-size: 0.2em;
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+	list-style-type: none;
+	margin-left: 1.5em !important;
+	transition: width 2s, height 2s;
+}
+
+.scale_bar_menu {
+	display: flex;
+	flex-direction: column;
+	align-items: left;
+	
+}
+
+.li_container {
+	display: flex;
+	flex-direction: row;
+    align-items: center;
+	margin-top: 0.155em !important;
+	cursor: pointer;
+}
+
+.li_container:hover .li_selection {
+	background-color: white;
+	height: 6px;
+	width: 6px;
+}
+
+.li_container:hover .li_bar {
+	height: 6px;
+	width: 0.35em;
+}
+
+.li_container:hover .li_text {
+	font-size: 0.22em;
+}
+
+.scale_bar_menu > .small_bar {
+	height: 2px;
+	width: 0.2em;
+	background-color: white;
+	margin-top: 0.155em !important;
+	transition: width 2s, height 2s;
+}
+
+.li_bar {
+	height: 5px;
+	width: 0.35em;
+	background-color: white;
+	transition: width 2s, height 2s;
+}
+
+.li_selection {
+	height: 5px;
+	width: 5px;
+	margin-left: 0.2em !important;
+	background-color: transparent;
+	transition: width 2s, height 2s;
+}
+
+.bottom_panel {
+	position: absolute;
+	bottom: 0.8em;
+	left: 50%;
+	transform: translateX(-50%);
+}
+
+.bottom_panel menu li {
+	color: white;
+    font-family: "SonyCam Original", sans-serif;
+	font-size: 0.2em;
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+	list-style-type: none;
+}
+
+
+.brand {
+    position: absolute;
+	height: 78vh;
+	width: 78vw;
+	justify-content: center;
+	align-items: center;
+	top: auto;
+	left: auto;
+	opacity: 0;
+}
+
+
+/* FRAME */
+
+.bit-top-left {
+	position: absolute;
+	left: 0%;
+	top: 0%;
+	height: 2px;
+	width: 25px;
+	background: #fff;
+}
+
+.bit-top-left2 {
+	position: absolute;
+	left: 0%;
+	top: 0%;
+	height: 25px;
+	width: 2px;
+	background: #fff;
+}
+
+.bit-top-right {
+	position: absolute;
+	right: 0%;
+	top: 0%;
+	height: 2px;
+	width: 25px;
+	background: #fff;
+}
+
+.bit-top-right-2 {
+	position: absolute;
+	right: 0%;
+	top: 0%;
+	height: 25px;
+	width: 2px;
+	background: #fff;
+}
+
+.bit-bottom-left {
+	position: absolute;
+	bottom: 0%;
+	left: 0px;
+	height: 25px;
+	width: 2px;
+	background: #fff;	
+}
+
+.bit-bottom-left-2 {
+	position: absolute;
+	bottom: 0%;
+	left: 0px;
+	height: 2px;
+	width: 25px;
+	background: #fff;		
+}
+
+.bit-bottom-right {
+	position: absolute;
+	bottom: 0%;
+	right: 0px;
+	height: 2px;
+	width: 25px;
+	background: #fff;			
+}
+.bit-bottom-right-2 {
+	position: absolute;
+	bottom: 0%;
+	right: 0px;
+	height: 25px;
+	width: 2px;
+	background: #fff;			
+}
+
+.tri-1 {
+  left: 0px;
+  position: absolute;
+  z-index: 10;
+  top: -0px;
+}
+
+.tri-2 {
+    right: 0px;
+    position: absolute;
+    z-index: 10;
+    top: -0px;
+}
+
+.tri-3 {
+    left: 0px;
+    position: absolute;
+    z-index: 10;
+    bottom: 0px;
+}
+
+.tri-4 {
+    right: 0px;
+    position: absolute;
+    z-index: 10;
+    bottom: 0px;
+}
+
+.cross {
+	z-index: 10;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translateX(-50%) translateY(-50%);
+}
+
+.horiz {
+	height: 25px;
+	width: 1px;
+	background: #fff;
+	transform: translateX(+50%) translateY(+50%);
+}
+
+.verti {
+	width: 25px;
+	height: 1px;
+	background: #fff;
+	transform: translateX(-50%) translateY(-50%);
+}
+
+.overlay {
+    position: absolute;
+    inset: 0;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.header {
+	position: absolute;
+	height: 10vh;
+	width: 78vw;
+	top: 0;
+	z-index: 100;
+	display: flex;
+	padding: 3.125svw 0 2.7svw;
+}
+
+.logo {
+	position: relative;
+	flex: none;
+	align-items: center;
+}
+
+.grow {
+	flex-grow: 1;
+}
+
+.quote {
+	flex: none;
+	align-items: center;
+}
+
+.quote a {
+	color: white;
+    font-family: "SonyCam Original", sans-serif;
+	font-size: 0.9em;
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+	text-decoration: none;
+}
+
+
+.frame {
+    position: absolute;
+    height: 68vh;
+    width: 78vw;
+    justify-content: center;
+    align-items: center;
+    top: auto;
+    left: auto;
+}
+
+.bg_video {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100svw;
+	height: 100svh;
+	overflow: hidden;
+}
+
+.bg_video_inner {
+    position: relative;
+    width: 100%;
+	height: 100%;
+    overflow: hidden;
+}
+
+.bg_video_inner > video {
+    object-fit: cover;
+    /*z-index: -100;*/
+    background-position: 50%;
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+    margin: auto;
+    position: absolute;
+    inset: 0px;
+}
+
+.home {
+	z-index: 101;
+	color: white;
+	font-size: 60px;
+}
+
+.brand {
+	z-index: 100;
+	color: white;
+}
+
+.brand_texts {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	left: 5em;
+}
+
+.scrolling_text {
+    overflow: hidden;
+    height: 10em;
+}
+
+.scrolling_text > .stroke {
+    overflow: hidden;
+    height: 3em;
+    line-height: 1.6em;
+}
+
+.scrolling_text > .stroke > h2 {
+    -webkit-text-stroke: 1px #4CF4FF;
+    text-stroke: 1px  #4CF4FF;
+    color: transparent;
+    font-family: "Anton", sans-serif;
+    letter-spacing: 0.4em;
+    font-size: 3.5em;
+    text-transform: uppercase;
+    padding-top: 0.5em;
+}
+
+.fixed_text {
+	max-width: 50em;
+}
+
+.fixed_text > h2 {
+    font-family: "Anton", sans-serif;
+    letter-spacing: 0.4em;
+    font-size: 3.5em;
+    text-transform: uppercase;
+    color:  white;
+    line-height: 1.6em;
+}
+
+.fixed_text > h2 > .twin {
+    color: #4CF4FF !important;
+}
+
+.section_title > h1 {
+    font-family: "Zilla Slab Highlight", serif;
+    font-size: 5em;
+    font-weight: 600;
+    line-height: 1.3em;
+    color: #ffffff;
+    text-transform: uppercase;
+}

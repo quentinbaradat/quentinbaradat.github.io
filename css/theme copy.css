@@ -1,0 +1,239 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Zilla+Slab+Highlight:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Roboto+Slab:wght@100..900&display=swap');
+@import url('../font/Anton-Regular.ttf');
+@import url('../font/sonycam-original.ttf');
+
+html, body {
+    scrollbar-width: thin;
+    scrollbar-color: #FFE500 transparent;
+    background-color: #0C0C0C;
+    overflow-x: hidden !important;
+}
+
+.portrait {
+    background-color: #0C0C0C;
+}
+
+*, body {
+    margin: 0;
+    padding: 0;
+}
+
+.sections {
+	width: 100svw;
+	height: 100svh;
+    overflow: hidden;
+}
+
+.sections > section {
+	width: 100vw;
+	height: 100vh;
+}
+
+.sub_sections > section {
+    width: 100vw;
+	height: 100vh;
+}
+
+.landing_overlay {
+    position: absolute;
+    inset: 0;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.home {
+    position: absolute;
+    width: 100%;
+	height: 100%;
+}
+
+.brand {
+    position: absolute;
+    top: 50%;
+    left: 15%;
+    z-index: 10;
+}
+
+.landing_bg {
+    position: absolute;
+    inset: 0;
+}
+
+.landing_bg_video {
+    position: relative;
+    width: 100%;
+	height: 100%;
+    overflow: hidden;
+}
+
+.landing_bg_video > video {
+    object-fit: cover;
+    /*z-index: -100;*/
+    background-position: 50%;
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+    margin: auto;
+    position: absolute;
+    inset: 0px;
+}
+
+.scrolling_text {
+    overflow: hidden;
+    height: 10em;
+}
+
+.scrolling_text > .stroke {
+    overflow: hidden;
+    height: 3em;
+    line-height: 1.6em;
+}
+
+.scrolling_text > .stroke > h2 {
+    -webkit-text-stroke: 1px #4CF4FF;
+    text-stroke: 1px  #4CF4FF;
+    color: transparent;
+    font-family: "Anton", sans-serif;
+    letter-spacing: 0.4em;
+    font-size: 64px;
+    text-transform: uppercase;
+    padding-top: 1em;
+}
+
+.fixed_text > h2 {
+    font-family: "Anton", sans-serif;
+    letter-spacing: 0.4em;
+    font-size: 64px;
+    text-transform: uppercase;
+    color:  white;
+    line-height: 1.6em;
+}
+
+.fixed_text > h2 > .twin {
+    color: #4CF4FF !important;
+}
+
+.section_title > h1 {
+    font-family: "Zilla Slab Highlight", serif;
+    font-size: 86px;
+    font-weight: 600;
+    line-height: 1.3em;
+    color: #ffffff;
+    text-transform: uppercase;
+}
+
+
+.bit-top-left {
+	position: absolute;
+	left: 0%;
+	top: 0%;
+	height: 1px;
+	width: 25px;
+	background: #fff;
+}
+
+.bit-top-left2 {
+	position: absolute;
+	left: 0%;
+	top: 0%;
+	height: 25px;
+	width: 1px;
+	background: #fff;
+}
+
+.bit-top-right {
+	position: absolute;
+	right: 0%;
+	top: 0%;
+	height: 1px;
+	width: 25px;
+	background: #fff;
+}
+
+.bit-top-right-2 {
+	position: absolute;
+	right: 0%;
+	top: 0%;
+	height: 25px;
+	width: 1px;
+	background: #fff;
+}
+
+.bit-bottom-left {
+	position: absolute;
+	bottom: 0%;
+	left: 0px;
+	height: 25px;
+	width: 1px;
+	background: #fff;	
+}
+
+.bit-bottom-left-2 {
+	position: absolute;
+	bottom: 0%;
+	left: 0px;
+	height: 1px;
+	width: 25px;
+	background: #fff;		
+}
+
+.bit-bottom-right {
+	position: absolute;
+	bottom: 0%;
+	right: 0px;
+	height: 1px;
+	width: 25px;
+	background: #fff;			
+}
+.bit-bottom-right-2 {
+	position: absolute;
+	bottom: 0%;
+	right: 0px;
+	height: 25px;
+	width: 1px;
+	background: #fff;			
+}
+
+
+.tri-1 {
+  left: 0px;
+  position: absolute;
+  z-index: 10;
+  top: -0px;
+}
+
+.tri-2 {
+    right: 0px;
+    position: absolute;
+    z-index: 10;
+    top: -0px;
+}
+
+.tri-3 {
+    left: 0px;
+    position: absolute;
+    z-index: 10;
+    bottom: 0px;
+}
+
+.tri-4 {
+    right: 0px;
+    position: absolute;
+    z-index: 10;
+    bottom: 0px;
+}
+
+.frame {
+    position: absolute;
+    height: 78vh;
+    width: 78vw;
+    justify-content: center;
+    align-items: center;
+    top: auto;
+    left: auto;
+}
