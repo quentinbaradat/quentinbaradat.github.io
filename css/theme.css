@@ -516,3 +516,47 @@ html, body {
 	position: absolute;
 	padding-top: 1.5em;
 }
+
+
+@media (max-width: 1284px) {
+	.section_title > h1 {
+		font-size: 3.5em;
+	}
+
+	.section_title {
+		height: 5em;
+	}
+
+	.fixed_text > h2 {
+		letter-spacing: 0.2em;
+		font-size: 2em;
+    	line-height: 1.3em;
+		width: 10em;
+	}
+
+	.scrolling_text {
+		overflow: hidden;
+		height: 10em;
+	}
+	
+	.scrolling_text > .stroke {
+		overflow: hidden;
+		height: 3em;
+		line-height: 1.6em;
+	}
+	
+	.scrolling_text > .stroke > h2 {
+		-webkit-text-stroke: 1px #4CF4FF;
+		text-stroke: 1px  #4CF4FF;
+		color: transparent;
+		font-family: "Anton", sans-serif;
+		letter-spacing: 0.2em;
+		font-size: 2em;
+		text-transform: uppercase;
+		padding-top: 10em;
+	}
+}
+
+@media (max-width: 950px) {
+
+}
