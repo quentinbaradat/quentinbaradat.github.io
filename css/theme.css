@@ -465,11 +465,14 @@ html, body {
     letter-spacing: 0.4em;
     font-size: 3.5em;
     text-transform: uppercase;
-    padding-top: 0.5em;
+    padding-top: 2em;
 }
 
 .fixed_text {
-	max-width: 50em;
+	width: 50em;
+  	height: 10em;
+  	overflow: hidden;
+	position: relative;
 }
 
 .fixed_text > h2 {
@@ -479,10 +482,19 @@ html, body {
     text-transform: uppercase;
     color:  white;
     line-height: 1.6em;
+	position: absolute;
+	padding-top: 3em;
+	width: 15em;
 }
 
 .fixed_text > h2 > .twin {
     color: #4CF4FF !important;
+}
+
+.section_title {
+  position: relative;
+  overflow: hidden;
+  height: 6.5em;
 }
 
 .section_title > h1 {
@@ -492,4 +504,6 @@ html, body {
     line-height: 1.3em;
     color: #ffffff;
     text-transform: uppercase;
+	position: absolute;
+	padding-top: 1.5em;
 }

@@ -40,6 +40,62 @@ gsap.to(".brand", {
   }
 });
 
+
+let tweenStrokeh2 = gsap.fromTo(".stroke > h2",{
+  paddingTop: "2em",
+  ease: "linear",
+}, {
+  paddingTop: "0.6em",
+  duration: 1,
+  ease: "none",
+});
+
+let tweenTitle = gsap.fromTo(".section_title > h1",{
+  paddingTop: "1.5em",
+  ease: "linear",
+}, {
+  paddingTop: "0.0em",
+  duration: 1,
+  ease: "none",
+});
+
+ScrollTrigger.create({
+  trigger: ".landing",
+  scrub: 1,
+  markers: false,
+  animation: tweenTitle,
+  start: "60% top",
+  end: `bottom bottom`,
+});
+
+ScrollTrigger.create({
+  trigger: ".landing",
+  scrub: 1,
+  markers: false,
+  animation: tweenStrokeh2,
+  start: "75% top",
+  end: `bottom bottom`,
+});
+
+
+let tweenFixedText = gsap.fromTo(".fixed_text > h2",{
+  paddingTop: "3em",
+  ease: "linear",
+}, {
+  paddingTop: "0.0em",
+  duration: 1,
+  ease: "none",
+});
+
+ScrollTrigger.create({
+  trigger: ".landing",
+  scrub: 1,
+  markers: false,
+  animation: tweenFixedText,
+  start: "85% top",
+  end: `bottom bottom`,
+});
+
 gsap.to(".bg_video", { 
   scrollTrigger: {
     trigger: ".wrapper",
@@ -49,7 +105,6 @@ gsap.to(".bg_video", {
     start: "top 0%",
   }
 });
-
 /*
 const timeline = gsap.timeline({
   scrollTrigger: {
