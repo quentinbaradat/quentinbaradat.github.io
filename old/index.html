@@ -1,0 +1,1912 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+<title>Ming Pan · 紫微斗数</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Noto+Serif+TC:wght@400;500;600;700&family=Noto+Serif+SC:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+:root{
+  /* Light (Profiles) */
+  --ivory:#F3EADB;
+  --ivory-2:#F8F1E5;
+  --ivory-3:#FBF6EC;
+  --ivory-line:#E5D9C2;
+  --ink:#2B2A47;
+  --ink-2:#403E5C;
+  --ink-soft:#7C778A;
+  --gold:#A9883F;
+  --gold-2:#B9974A;
+  --gold-bright:#C9A24C;
+  /* Dark (Chart) */
+  --aubergine:#221A3A;
+  --aubergine-2:#2C2250;
+  --aubergine-3:#372A5E;
+  --aubergine-line:rgba(201,162,76,.35);
+  --gold-soft:#D8B968;
+  --ivory-cell:#F2EAD9;
+  --ivory-cell-2:#EFE6D2;
+  /* Star colors */
+  --st-maroon:#9C3A35;
+  --st-purple:#6B4F93;
+  --st-blue:#3E5C8A;
+  --st-green:#4E7A50;
+  --st-ink:#393454;
+  --st-minor:#7A7748;
+  --st-hua:#B06A24;
+  --shadow:0 1px 2px rgba(43,42,71,.06);
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+html,body{margin:0;padding:0;height:100%;}
+body{
+  font-family:'EB Garamond',Georgia,serif;
+  color:var(--ink);
+  background:#1b1530;
+  background-image:radial-gradient(120% 90% at 50% 0%, #2a2147 0%, #1b1530 60%, #141022 100%);
+  display:flex;align-items:center;justify-content:center;
+  -webkit-font-smoothing:antialiased;
+  overscroll-behavior:none;
+}
+#root{width:100%;height:100%;display:flex;align-items:center;justify-content:center;}
+
+/* ---- Phone frame ---- */
+.phone{
+  position:relative;width:100%;max-width:438px;height:100dvh;margin:0 auto;
+  background:var(--ivory);overflow:hidden;display:flex;flex-direction:column;
+  isolation:isolate;
+}
+@media(min-width:480px){
+  .phone{height:min(940px,96dvh);border-radius:46px;
+    box-shadow:0 40px 90px -30px rgba(0,0,0,.65), 0 0 0 11px #0d0a18, 0 0 0 13px #2a2444;}
+}
+
+/* ---- Status bar ---- */
+.statusbar{position:relative;z-index:30;display:flex;align-items:center;justify-content:space-between;
+  padding:14px 30px 4px;font-family:'EB Garamond',serif;font-weight:600;font-size:16px;flex:0 0 auto;}
+.statusbar .sb-time{letter-spacing:.5px;font-variant-numeric:tabular-nums;}
+.statusbar .sb-icons{display:flex;align-items:center;gap:7px;}
+.sb-dark{color:#1d1b2e;}
+.sb-light{color:#F1E7CF;}
+.sb-bars{display:flex;align-items:flex-end;gap:2px;height:12px;}
+.sb-bars i{width:3px;border-radius:1px;background:currentColor;display:block;}
+.sb-bars i:nth-child(1){height:5px;}.sb-bars i:nth-child(2){height:7px;}
+.sb-bars i:nth-child(3){height:9px;}.sb-bars i:nth-child(4){height:12px;}
+.sb-batt{width:25px;height:12px;border:1.4px solid currentColor;border-radius:3px;position:relative;opacity:.95;}
+.sb-batt::after{content:"";position:absolute;right:-3px;top:3.5px;width:2px;height:5px;background:currentColor;border-radius:0 1px 1px 0;}
+.sb-batt i{position:absolute;inset:1.5px;width:70%;background:currentColor;border-radius:1px;}
+
+/* ---- Generic screen ---- */
+.screen{position:relative;flex:1;min-height:0;display:flex;flex-direction:column;}
+@media (prefers-reduced-motion: no-preference){
+  .screen-slide{animation:slideIn .4s cubic-bezier(.22,.7,.25,1);}
+}
+/* transform-only: if the iframe pauses animations at frame 0, content stays visible (just shifted), never blank */
+@keyframes slideIn{from{transform:translateX(6%);}to{transform:translateX(0);}}
+.scroll{flex:1;min-height:0;overflow-y:auto;overflow-x:hidden;-webkit-overflow-scrolling:touch;scrollbar-width:none;}
+.scroll::-webkit-scrollbar{display:none;}
+
+/* =====================================================
+   PROFILES SCREEN (light)
+===================================================== */
+.p-screen{background:var(--ivory);}
+.p-hero{position:relative;padding:6px 0 4px;overflow:hidden;}
+.p-topbar{display:flex;justify-content:flex-end;padding:0 26px;position:relative;z-index:4;}
+.icon-btn{width:42px;height:42px;border:none;background:transparent;display:flex;align-items:center;justify-content:center;color:var(--gold);cursor:pointer;border-radius:50%;}
+.icon-btn:active{background:rgba(169,136,63,.1);}
+.p-emblem{display:flex;flex-direction:column;align-items:center;position:relative;z-index:4;margin-top:-6px;}
+.emblem-ring{width:74px;height:74px;border-radius:50%;border:1.4px solid var(--gold);display:flex;align-items:center;justify-content:center;position:relative;}
+.p-title{font-family:'Cormorant Garamond',serif;font-weight:600;color:var(--ink);font-size:43px;letter-spacing:.06em;margin:16px 0 0;line-height:1;white-space:nowrap;}
+.p-title small{font-size:.62em;}
+.p-sub{font-family:'EB Garamond',serif;color:var(--gold);letter-spacing:.42em;font-size:12.5px;font-weight:500;margin-top:9px;text-transform:uppercase;padding-left:.42em;}
+.mist{position:absolute;left:0;right:0;bottom:-1px;height:205px;z-index:1;pointer-events:none;}
+
+.p-section{display:flex;align-items:center;justify-content:center;gap:16px;margin:30px 0 4px;color:var(--ink);}
+.p-section .lbl{font-family:'Cormorant Garamond',serif;letter-spacing:.34em;font-size:18px;font-weight:600;text-transform:uppercase;padding-left:.34em;}
+.p-section .dash{display:flex;align-items:center;gap:7px;color:var(--gold);}
+.p-section .dash::before{content:"";width:34px;height:1px;background:linear-gradient(90deg,transparent,var(--gold));}
+.p-section .dash.r::before{background:linear-gradient(90deg,var(--gold),transparent);}
+.p-section .dot{font-size:9px;}
+.p-dia{display:flex;justify-content:center;color:var(--gold);font-size:9px;margin-bottom:6px;opacity:.8;}
+
+/* profile list */
+.p-list{padding:6px 26px 2px;}
+.p-row{display:flex;align-items:center;gap:8px;padding:18px 2px;border-top:1px solid var(--ivory-line);cursor:pointer;position:relative;}
+.p-row:first-child{border-top:1px solid var(--ivory-line);}
+.p-row:active{background:rgba(169,136,63,.045);}
+.p-row .pr-main{flex:1;min-width:0;}
+.p-row .pr-name{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:25px;color:var(--ink);line-height:1.1;}
+.p-row .pr-meta{font-family:'EB Garamond',serif;font-size:13.5px;color:var(--ink-soft);margin-top:5px;letter-spacing:.01em;}
+.p-row .pr-meta b{color:var(--gold);font-weight:400;margin:0 5px;}
+.chev{color:var(--gold-2);display:flex;align-items:center;opacity:.85;}
+.dots-btn{width:30px;height:38px;border:none;background:transparent;color:var(--ink-soft);display:flex;align-items:center;justify-content:center;cursor:pointer;border-radius:8px;}
+.dots-btn:active{background:rgba(43,42,71,.06);}
+
+.add-row{display:flex;align-items:center;justify-content:center;gap:13px;width:100%;border:none;background:transparent;
+  border-top:1px solid var(--ivory-line);padding:24px;cursor:pointer;color:var(--ink);
+  font-family:'Cormorant Garamond',serif;font-weight:600;font-size:18px;letter-spacing:.18em;text-transform:uppercase;padding-left:calc(.18em + 24px);}
+.add-row:active{background:rgba(169,136,63,.05);}
+.add-row .plus{width:23px;height:23px;color:var(--gold);}
+
+/* bottom nav */
+.bottomnav{flex:0 0 auto;display:flex;align-items:flex-start;justify-content:center;gap:78px;padding:12px 0 6px;
+  border-top:1px solid var(--ivory-line);background:var(--ivory-2);position:relative;z-index:20;}
+.navitem{display:flex;flex-direction:column;align-items:center;gap:7px;border:none;background:transparent;cursor:pointer;padding:4px 6px;}
+.navitem .ni-ic{width:46px;height:46px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--ink-soft);}
+.navitem .ni-lbl{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-soft);padding-left:.2em;}
+.navitem.active .ni-ic{background:var(--aubergine-2);color:var(--gold-soft);box-shadow:0 6px 16px -6px rgba(34,26,58,.5);}
+.navitem.active .ni-lbl{color:var(--ink);}
+.navitem .ni-dot{width:3px;height:3px;border-radius:50%;background:var(--gold);margin-top:-3px;opacity:0;}
+.navitem.active .ni-dot{opacity:1;}
+.home-ind{flex:0 0 auto;display:flex;justify-content:center;padding:7px 0 9px;background:var(--ivory-2);}
+.home-ind i{width:128px;height:5px;border-radius:3px;background:rgba(43,42,71,.32);display:block;}
+.home-ind.dark i{background:rgba(232,214,168,.4);}
+
+/* =====================================================
+   CHART SCREEN (dark)
+===================================================== */
+.c-screen{background:var(--aubergine);color:#EFE3C6;}
+.c-stars{position:absolute;inset:0;z-index:0;pointer-events:none;overflow:hidden;}
+.star-layer{position:absolute;inset:-6% 0;}
+.star{position:absolute;border-radius:50%;opacity:var(--o1,.8);will-change:opacity,transform;
+  animation:twinkle var(--dur,4s) ease-in-out var(--delay,0s) infinite;}
+.star-layer.l1{animation:drift 64s ease-in-out infinite alternate;}
+.star-layer.l2{animation:driftB 48s ease-in-out infinite alternate;}
+.nebula{position:absolute;border-radius:50%;filter:blur(8px);transform:translate(-50%,-50%);opacity:.85;will-change:transform;
+  animation:nebulaDrift var(--ndur,38s) ease-in-out var(--ndelay,0s) infinite alternate;}
+.shooting{position:absolute;width:90px;height:1.6px;border-radius:2px;opacity:0;
+  background:linear-gradient(90deg,transparent,rgba(240,226,184,0),rgba(240,226,184,.95));
+  filter:drop-shadow(0 0 3px rgba(240,226,184,.6));
+  animation:shoot var(--sdur,12s) ease-in var(--sdelay,3s) infinite;}
+/* This ambient backdrop is intentionally subtle and plays regardless of the
+   reduced-motion setting, since it was explicitly requested. */
+@keyframes twinkle{0%,100%{opacity:var(--o0,.2);transform:scale(.8);}50%{opacity:var(--o1,.85);transform:scale(1.18);}}
+@keyframes drift{from{transform:translate3d(0,0,0);}to{transform:translate3d(8px,16px,0);}}
+@keyframes driftB{from{transform:translate3d(0,0,0);}to{transform:translate3d(-10px,-12px,0);}}
+@keyframes nebulaDrift{from{transform:translate(-50%,-50%) scale(1);}to{transform:translate(calc(-50% + 18px),calc(-50% - 14px)) scale(1.14);}}
+@keyframes shoot{
+  0%{opacity:0;transform:translate(0,0) rotate(22deg) scaleX(.2);}
+  3%{opacity:0;}
+  6%{opacity:1;}
+  15%{opacity:1;}
+  22%{opacity:0;transform:translate(220px,90px) rotate(22deg) scaleX(1);}
+  100%{opacity:0;transform:translate(220px,90px) rotate(22deg) scaleX(1);}
+}
+.c-head{position:relative;z-index:5;display:flex;align-items:center;justify-content:space-between;padding:2px 18px 2px;}
+.c-head .ttl{font-family:'Cormorant Garamond',serif;font-weight:600;letter-spacing:.34em;font-size:19px;color:var(--gold-soft);padding-left:.34em;white-space:nowrap;}
+.ic-light{width:42px;height:42px;border:none;background:transparent;display:flex;align-items:center;justify-content:center;color:var(--gold-soft);cursor:pointer;border-radius:50%;}
+.ic-light:active{background:rgba(216,185,104,.12);}
+
+.c-emblem{display:flex;flex-direction:column;align-items:center;position:relative;z-index:5;padding:8px 0 2px;}
+.c-seal{width:122px;height:122px;border-radius:50%;border:1.5px solid var(--aubergine-line);display:flex;align-items:center;justify-content:center;position:relative;
+  animation:sealFloat 7s ease-in-out infinite;}
+.c-seal::before{content:"";position:absolute;inset:7px;border-radius:50%;border:1px solid rgba(216,185,104,.18);z-index:2;}
+/* rotating ring of degree ticks */
+.seal-ticks{position:absolute;inset:-11px;border-radius:50%;border:1.5px dashed rgba(216,185,104,.42);
+  animation:sealSpin 60s linear infinite;z-index:1;}
+.seal-ticks::after{content:"";position:absolute;inset:5px;border-radius:50%;border:1px dotted rgba(216,185,104,.28);
+  animation:sealSpin 90s linear infinite reverse;}
+/* light sweep arcing around the rim */
+.seal-sweep{position:absolute;inset:-2px;border-radius:50%;z-index:1;
+  background:conic-gradient(from 0deg, rgba(240,222,150,0) 0deg, rgba(240,222,150,0) 250deg, rgba(245,228,160,.85) 320deg, rgba(240,222,150,0) 360deg);
+  -webkit-mask:radial-gradient(farthest-side, transparent calc(100% - 4px), #000 calc(100% - 4px));
+          mask:radial-gradient(farthest-side, transparent calc(100% - 4px), #000 calc(100% - 4px));
+  animation:sealSpin 9s linear infinite;}
+/* breathing glow behind the characters */
+.seal-glow{position:absolute;inset:14px;border-radius:50%;z-index:1;
+  background:radial-gradient(circle, rgba(216,185,104,.34), rgba(216,185,104,0) 70%);
+  animation:sealPulse 5.5s ease-in-out infinite;}
+.c-seal .seal-zh{font-family:'Noto Serif TC',serif;font-weight:500;color:var(--gold-soft);font-size:25px;line-height:1.06;text-align:center;letter-spacing:.04em;
+  position:relative;z-index:3;text-shadow:0 0 18px rgba(216,185,104,.3);animation:sealText 5.5s ease-in-out infinite;}
+@keyframes sealSpin{from{transform:rotate(0);}to{transform:rotate(360deg);}}
+@keyframes sealFloat{0%,100%{transform:translateY(0) scale(1);}50%{transform:translateY(-3px) scale(1.012);}}
+@keyframes sealPulse{0%,100%{opacity:.55;transform:scale(.94);}50%{opacity:1;transform:scale(1.04);}}
+@keyframes sealText{0%,100%{text-shadow:0 0 14px rgba(216,185,104,.28);}50%{text-shadow:0 0 24px rgba(216,185,104,.55), 0 0 4px rgba(245,228,160,.4);}}
+
+.c-selector{margin:16px auto 0;position:relative;z-index:6;width:max-content;}
+.sel-btn{display:flex;align-items:center;gap:16px;background:rgba(11,8,24,.34);border:1px solid var(--aubergine-line);border-radius:30px;
+  padding:11px 22px;color:#F3E8C9;font-family:'Cormorant Garamond',serif;font-weight:600;font-size:21px;letter-spacing:.04em;cursor:pointer;min-width:215px;justify-content:center;}
+.sel-btn .cv{color:var(--gold-soft);display:flex;}
+.sel-menu{position:absolute;top:calc(100% + 8px);left:50%;transform:translateX(-50%);min-width:235px;background:#2A2049;
+  border:1px solid var(--aubergine-line);border-radius:18px;padding:6px;z-index:40;box-shadow:0 24px 50px -16px rgba(0,0,0,.7);}
+.sel-item{display:block;width:100%;text-align:center;border:none;background:transparent;color:#E9DCBC;font-family:'Cormorant Garamond',serif;
+  font-weight:600;font-size:18px;padding:11px;border-radius:12px;cursor:pointer;letter-spacing:.03em;}
+.sel-item:active,.sel-item.on{background:rgba(216,185,104,.13);color:var(--gold-soft);}
+
+.c-info{text-align:center;position:relative;z-index:5;margin-top:14px;padding:0 20px;}
+.c-info .l1{font-family:'EB Garamond',serif;font-size:15px;color:#E7DBBC;letter-spacing:.02em;}
+.c-info .l2{font-family:'EB Garamond',serif;font-size:13px;color:#B6A9CB;margin-top:6px;letter-spacing:.02em;}
+.c-info .l1 b,.c-info .l2 b{color:var(--gold-soft);font-weight:400;margin:0 7px;font-size:.9em;}
+.c-info .zhh{font-family:'Noto Serif TC',serif;}
+
+/* the chart grid */
+.c-board{position:relative;z-index:5;margin:18px 12px 0;border:1px solid rgba(216,185,104,.28);border-radius:3px;background:var(--ivory-cell);
+  box-shadow:0 20px 50px -22px rgba(0,0,0,.7);overflow:hidden;}
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:repeat(4,1fr);}
+.cell{position:relative;border-right:1px solid rgba(169,136,63,.26);border-bottom:1px solid rgba(169,136,63,.26);
+  min-height:118px;padding:9px 9px 7px;cursor:pointer;background:var(--ivory-cell);transition:background .2s;display:flex;flex-direction:column;}
+.cell:nth-child(4n){border-right:none;}
+.grid4 .cell.r4{border-bottom:none;}
+.cell:active{background:var(--ivory-cell-2);}
+.cell.active{background:#F6EFDC;box-shadow:inset 0 0 0 2px var(--gold-2);}
+.cell.active::after{content:"";position:absolute;inset:0;background:radial-gradient(80% 70% at 50% 30%,rgba(201,162,76,.12),transparent);pointer-events:none;}
+.cell .majors{display:flex;gap:9px;flex-wrap:wrap;}
+.cell .maj{font-family:'Noto Serif TC',serif;font-weight:600;font-size:21px;line-height:1.15;writing-mode:vertical-rl;text-orientation:upright;letter-spacing:.04em;}
+.maj.maroon{color:var(--st-maroon);}.maj.purple{color:var(--st-purple);}.maj.blue{color:var(--st-blue);}
+.maj.green{color:var(--st-green);}.maj.ink{color:var(--st-ink);}
+.cell .minors{display:flex;gap:6px;margin-top:5px;flex-wrap:wrap;flex:1;align-content:flex-start;}
+.cell .min{font-family:'Noto Serif TC',serif;font-weight:500;font-size:13px;color:var(--st-minor);writing-mode:vertical-rl;line-height:1.1;letter-spacing:.02em;}
+.cell .min.hua{color:var(--st-hua);}
+.cell .foot{display:flex;align-items:baseline;justify-content:space-between;margin-top:auto;padding-top:5px;}
+.cell .branch{font-family:'Noto Serif TC',serif;font-weight:600;font-size:16px;color:var(--st-ink);}
+.cell .pal-nm{font-family:'Noto Serif TC',serif;font-size:11px;color:var(--st-minor);opacity:.85;}
+.cell .ages{font-family:'EB Garamond',serif;font-size:12px;color:#8A7E64;font-variant-numeric:tabular-nums;letter-spacing:.02em;}
+.cell .hua-badge{position:absolute;top:8px;right:8px;display:flex;flex-direction:column;gap:3px;}
+.cell .hb{width:17px;height:17px;border-radius:3px;font-family:'Noto Serif TC',serif;font-size:11px;font-weight:600;display:flex;align-items:center;justify-content:center;color:#fff;}
+
+/* center panel */
+.center-cell{grid-column:2/4;grid-row:2/4;position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  background:var(--ivory-cell);overflow:hidden;}
+.center-mist{position:absolute;left:0;right:0;bottom:0;height:62%;z-index:1;opacity:.85;pointer-events:none;}
+.center-cell .cc-in{position:relative;z-index:2;text-align:center;}
+.cc-pal{font-family:'Noto Serif TC',serif;font-size:16px;color:var(--st-minor);letter-spacing:.16em;padding-left:.16em;}
+.cc-big{font-family:'Noto Serif TC',serif;font-weight:600;font-size:46px;color:var(--st-ink);line-height:1.05;margin:6px 0 12px;}
+.cc-br{font-family:'Noto Serif TC',serif;font-size:18px;color:#6F6552;margin-top:2px;}
+.cc-body{font-family:'Noto Serif TC',serif;font-size:14px;color:var(--st-minor);margin-top:9px;}
+
+/* tab bar (overview etc) */
+.c-tabs{position:relative;z-index:5;display:flex;justify-content:space-between;padding:18px 22px 14px;margin:0 4px;}
+.tab{display:flex;flex-direction:column;align-items:center;gap:7px;border:none;background:transparent;cursor:pointer;flex:1;color:rgba(214,196,150,.5);}
+.tab .tic{width:46px;height:46px;border-radius:50%;border:1px solid rgba(216,185,104,.25);display:flex;align-items:center;justify-content:center;}
+.tab .tlbl{font-family:'EB Garamond',serif;font-size:11px;letter-spacing:.13em;text-transform:uppercase;}
+.tab.on{color:var(--gold-soft);}
+.tab.on .tic{border-color:var(--gold-soft);background:radial-gradient(circle,rgba(216,185,104,.16),transparent 70%);box-shadow:0 0 22px -4px rgba(216,185,104,.4);}
+.tab.dis{opacity:.5;}
+
+/* overview panel */
+.c-panel{position:relative;z-index:5;background:var(--ivory-3);border-radius:26px 26px 0 0;margin-top:4px;padding:24px 26px 14px;
+  box-shadow:0 -14px 36px -18px rgba(0,0,0,.5);min-height:150px;}
+.pan-head{display:flex;align-items:center;gap:13px;color:var(--gold);}
+.pan-head .ph-lbl{font-family:'Cormorant Garamond',serif;font-weight:600;letter-spacing:.28em;font-size:16px;text-transform:uppercase;padding-left:.28em;color:var(--ink);}
+.pan-head .ph-dia{font-size:8px;}
+.pan-head .ph-line{flex:1;height:1px;background:linear-gradient(90deg,var(--gold),transparent);}
+.c-panel .watermark{position:absolute;right:22px;bottom:14px;font-family:'Noto Serif TC',serif;font-weight:600;font-size:54px;line-height:.9;
+  color:rgba(169,136,63,.13);writing-mode:vertical-rl;text-orientation:upright;}
+.pan-body{font-family:'EB Garamond',serif;font-size:15.5px;line-height:1.62;color:var(--ink-2);margin-top:15px;max-width:88%;}
+.pan-detail{margin-top:16px;}
+.pd-row{display:flex;gap:10px;margin-top:11px;}
+.pd-star{display:flex;align-items:center;gap:9px;}
+.pd-zh{font-family:'Noto Serif TC',serif;font-weight:600;font-size:19px;}
+.pd-en{font-family:'EB Garamond',serif;font-size:14px;color:var(--ink-soft);}
+.pd-tag{font-family:'EB Garamond',serif;font-size:12px;color:var(--gold);border:1px solid var(--gold-soft);border-radius:20px;padding:3px 11px;letter-spacing:.04em;}
+.pd-stars{display:flex;flex-wrap:wrap;gap:8px 16px;margin-top:12px;}
+
+/* ---- tab panels: lists, elements, analysis ---- */
+.pan-list{margin-top:6px;}
+.pl-row{display:flex;align-items:center;gap:13px;width:100%;text-align:left;border:none;background:transparent;cursor:pointer;
+  padding:13px 8px;border-top:1px solid var(--ivory-line);border-radius:11px;transition:background .15s;}
+.pan-list .pl-row:first-child{border-top:none;}
+.pl-row:active{background:rgba(169,136,63,.06);}
+.pl-row.on{background:rgba(201,162,76,.13);box-shadow:inset 0 0 0 1px var(--gold-soft);}
+.pl-zh{font-family:'Noto Serif TC',serif;font-weight:600;font-size:22px;line-height:1;flex:0 0 auto;}
+.pl-main{flex:1;min-width:0;display:flex;flex-direction:column;gap:3px;}
+.pl-en{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:18px;color:var(--ink);line-height:1;}
+.pl-meta{font-family:'EB Garamond',serif;font-size:12.5px;color:var(--ink-soft);}
+.el-chip{font-family:'EB Garamond',serif;font-size:11.5px;border:1px solid;border-radius:20px;padding:3px 9px;white-space:nowrap;opacity:.9;letter-spacing:.02em;flex:0 0 auto;}
+.bright-badge{font-family:'Noto Serif TC',serif;font-size:15px;color:var(--gold);width:24px;text-align:center;flex:0 0 auto;}
+.pl-pal{flex:1;display:flex;flex-direction:column;gap:3px;min-width:0;}
+.pl-stars{display:flex;gap:7px;font-family:'Noto Serif TC',serif;font-weight:600;font-size:18px;flex:0 0 auto;}
+.pl-br{font-family:'Noto Serif TC',serif;font-size:16px;color:var(--st-ink);display:flex;flex-direction:column;align-items:flex-end;gap:2px;flex:0 0 auto;}
+.pl-br small{font-family:'EB Garamond',serif;font-size:11.5px;color:#8A7E64;font-variant-numeric:tabular-nums;}
+
+.bureau-row{display:flex;align-items:center;justify-content:space-between;margin-top:16px;padding:14px 16px;
+  background:var(--ivory-2);border:1px solid var(--ivory-line);border-radius:14px;}
+.bureau-label{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:14px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);}
+.bureau-val{font-family:'Noto Serif TC',serif;font-weight:600;font-size:19px;white-space:nowrap;text-align:right;}
+.el-bars{margin-top:18px;display:flex;flex-direction:column;gap:13px;}
+.el-bar{display:flex;align-items:center;gap:13px;}
+.el-name{font-family:'Noto Serif TC',serif;font-weight:600;font-size:19px;width:74px;flex:0 0 auto;display:flex;align-items:baseline;gap:7px;}
+.el-name small{font-family:'EB Garamond',serif;font-size:12px;color:var(--ink-soft);font-weight:400;}
+.el-track{flex:1;height:9px;border-radius:6px;background:rgba(43,42,71,.08);overflow:hidden;}
+.el-fill{display:block;height:100%;border-radius:6px;transition:width .5s cubic-bezier(.22,.8,.26,1);min-width:3px;}
+.el-num{font-family:'EB Garamond',serif;font-size:14px;color:var(--ink-2);width:16px;text-align:right;font-variant-numeric:tabular-nums;flex:0 0 auto;}
+
+.an-lead{margin-top:16px;display:flex;flex-direction:column;align-items:flex-start;gap:8px;}
+.an-lead-zh{font-family:'Noto Serif TC',serif;font-weight:600;font-size:44px;line-height:1;}
+.an-lead-meta{display:flex;align-items:center;}
+.an-read{font-family:'EB Garamond',serif;font-size:15.5px;line-height:1.6;color:var(--ink-2);margin:4px 0 0;max-width:90%;}
+.pan-sublbl{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-top:22px;padding-left:.18em;}
+.an-domains{margin-top:8px;display:flex;flex-direction:column;}
+.an-dom{display:flex;gap:13px;padding:13px 0;border-top:1px solid var(--ivory-line);}
+.an-dom:first-child{border-top:none;}
+.an-dom-pal{font-family:'Noto Serif TC',serif;font-weight:600;font-size:18px;color:var(--st-ink);width:84px;flex:0 0 auto;display:flex;flex-direction:column;gap:3px;}
+.an-dom-pal small{font-family:'EB Garamond',serif;font-size:11.5px;color:var(--ink-soft);font-weight:400;}
+.an-dom-read{font-family:'EB Garamond',serif;font-size:14.5px;line-height:1.5;color:var(--ink-2);flex:1;}
+.an-dom-read b{font-family:'Noto Serif TC',serif;font-weight:600;font-size:17px;margin-right:4px;}
+
+/* =====================================================
+   AUTH / SIGN-IN SCREEN (dark celestial)
+===================================================== */
+.auth-screen{background:var(--aubergine);}
+.auth-lang{position:absolute;top:14px;right:20px;z-index:8;border:1px solid var(--aubergine-line);background:rgba(11,8,24,.3);
+  color:var(--gold-soft);border-radius:18px;padding:7px 14px;font-family:'Cormorant Garamond',serif;font-weight:600;
+  font-size:13px;letter-spacing:.12em;cursor:pointer;}
+.auth-lang:active{background:rgba(216,185,104,.14);}
+.auth-scroll{display:flex;flex-direction:column;}
+.auth-top{position:relative;z-index:5;display:flex;flex-direction:column;align-items:center;padding:14px 0 6px;}
+.auth-top .c-emblem{padding:6px 0 0;}
+.auth-wordmark{font-family:'Cormorant Garamond',serif;font-weight:600;color:#F3E8C9;font-size:39px;letter-spacing:.06em;margin:16px 0 0;line-height:1;white-space:nowrap;}
+.auth-wordmark span{font-size:.64em;}
+.auth-subw{font-family:'EB Garamond',serif;color:var(--gold-soft);letter-spacing:.42em;font-size:11.5px;font-weight:500;margin-top:9px;text-transform:uppercase;padding-left:.42em;}
+.auth-tag{font-family:'EB Garamond',serif;font-style:italic;color:#C3B7DA;font-size:15px;line-height:1.5;text-align:center;max-width:300px;margin:16px auto 0;}
+
+.auth-card{position:relative;z-index:5;margin:22px 22px 0;background:rgba(20,15,38,.55);border:1px solid rgba(216,185,104,.22);
+  border-radius:26px;padding:20px 22px 22px;backdrop-filter:blur(8px);box-shadow:0 24px 60px -28px rgba(0,0,0,.7);}
+.auth-seg{display:flex;background:rgba(11,8,24,.4);border:1px solid var(--aubergine-line);border-radius:14px;padding:4px;gap:4px;margin-bottom:20px;}
+.auth-seg button{flex:1;border:none;background:transparent;border-radius:10px;padding:11px;cursor:pointer;
+  font-family:'Cormorant Garamond',serif;font-weight:600;font-size:16px;letter-spacing:.06em;color:#B6A9CB;}
+.auth-seg button.on{background:var(--gold-soft);color:#241B3D;box-shadow:0 6px 16px -8px rgba(216,185,104,.6);}
+
+.social{display:flex;align-items:center;justify-content:center;gap:11px;width:100%;margin-top:11px;
+  background:rgba(247,241,230,.95);border:1px solid rgba(247,241,230,.4);border-radius:30px;padding:14px;cursor:pointer;
+  font-family:'EB Garamond',serif;font-size:15.5px;font-weight:600;color:#241B3D;transition:transform .1s,box-shadow .2s;}
+.social span{white-space:nowrap;}
+.social svg{flex:0 0 auto;}
+.social:active{transform:translateY(1px);}
+.social[disabled]{opacity:.85;cursor:default;}
+.social .spin-ic path,.social .spin-ic circle{stroke:#241B3D;}
+.social:nth-of-type(2){background:rgba(255,255,255,.07);border-color:rgba(216,185,104,.3);color:#F1E7CF;}
+
+.auth-or{display:flex;align-items:center;gap:14px;margin:20px 0 4px;color:#9387B0;}
+.auth-or::before,.auth-or::after{content:"";flex:1;height:1px;background:rgba(216,185,104,.22);}
+.auth-or span{font-family:'EB Garamond',serif;font-size:12.5px;letter-spacing:.02em;white-space:nowrap;}
+
+.auth-field{margin-top:15px;}
+.auth-field label{display:block;font-family:'Cormorant Garamond',serif;font-weight:600;font-size:12.5px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--gold-soft);margin-bottom:7px;padding-left:.16em;}
+.auth-field input{width:100%;font-family:'EB Garamond',serif;font-size:17px;color:#F3ECDD;background:rgba(11,8,24,.4);
+  border:1px solid rgba(216,185,104,.25);border-radius:13px;padding:13px 15px;outline:none;transition:border .15s,box-shadow .15s;}
+.auth-field input::placeholder{color:#7E739A;}
+.auth-field input:focus{border-color:var(--gold-soft);box-shadow:0 0 0 3px rgba(216,185,104,.14);}
+.auth-field input.err{border-color:#C25B54;box-shadow:0 0 0 3px rgba(194,91,84,.14);}
+.auth-field .hint{font-family:'EB Garamond',serif;font-size:12.5px;color:#E08A82;margin-top:6px;}
+.auth-forgot{display:block;margin:11px 0 0 auto;border:none;background:transparent;color:#B6A9CB;cursor:pointer;
+  font-family:'EB Garamond',serif;font-size:13.5px;text-align:right;}
+.auth-forgot:active{color:var(--gold-soft);}
+
+.auth-primary{display:flex;align-items:center;justify-content:center;gap:9px;width:100%;margin-top:18px;border:none;border-radius:14px;
+  padding:15px;cursor:pointer;background:var(--gold-soft);color:#241B3D;
+  font-family:'Cormorant Garamond',serif;font-weight:700;font-size:17px;letter-spacing:.1em;text-transform:uppercase;padding-left:calc(.1em + 8px);
+  box-shadow:0 14px 30px -12px rgba(216,185,104,.55);transition:transform .1s;}
+.auth-primary:active{transform:translateY(1px);}
+.auth-primary[disabled]{opacity:.9;cursor:default;}
+.auth-legal{font-family:'EB Garamond',serif;font-size:12px;line-height:1.5;color:#8E82AB;text-align:center;margin:18px auto 2px;max-width:280px;}
+
+.spin-ic{animation:spin .8s linear infinite;}
+@keyframes spin{to{transform:rotate(360deg);}}
+
+/* account block inside settings */
+.acct-box{display:flex;align-items:center;gap:13px;margin-top:8px;padding:14px 16px;background:var(--ivory-3);
+  border:1px solid var(--ivory-line);border-radius:14px;}
+.acct-av{width:44px;height:44px;border-radius:50%;flex:0 0 auto;display:flex;align-items:center;justify-content:center;
+  background:var(--aubergine-2);color:var(--gold-soft);font-family:'Cormorant Garamond',serif;font-weight:700;font-size:20px;}
+.acct-info{flex:1;min-width:0;}
+.acct-name{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:18px;color:var(--ink);line-height:1.1;}
+.acct-email{font-family:'EB Garamond',serif;font-size:13px;color:var(--ink-soft);margin-top:2px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.acct-prov{font-family:'EB Garamond',serif;font-size:11px;color:var(--gold);border:1px solid var(--gold-soft);border-radius:16px;padding:2px 9px;flex:0 0 auto;text-transform:capitalize;}
+.signout-btn{display:flex;align-items:center;justify-content:center;gap:9px;width:100%;margin-top:14px;border:1px solid var(--ivory-line);
+  background:transparent;border-radius:13px;padding:14px;cursor:pointer;color:var(--st-maroon);
+  font-family:'Cormorant Garamond',serif;font-weight:600;font-size:15px;letter-spacing:.08em;text-transform:uppercase;padding-left:calc(.08em + 8px);}
+.signout-btn:active{background:rgba(156,58,53,.06);}
+
+/* =====================================================
+   BOTTOM SHEET (add/edit profile)
+===================================================== */
+.scrim{position:absolute;inset:0;z-index:50;background:rgba(28,22,46,.5);backdrop-filter:blur(2px);animation:fadeIn .25s ease;}
+@keyframes fadeIn{from{opacity:0;}to{opacity:1;}}
+.sheet{position:absolute;left:0;right:0;bottom:0;z-index:51;background:var(--ivory-2);border-radius:28px 28px 0 0;
+  padding:10px 26px calc(20px + env(safe-area-inset-bottom));box-shadow:0 -20px 50px -10px rgba(0,0,0,.4);
+  animation:sheetUp .38s cubic-bezier(.22,.8,.26,1);max-height:92%;overflow-y:auto;scrollbar-width:none;}
+.sheet::-webkit-scrollbar{display:none;}
+@keyframes sheetUp{from{transform:translateY(102%);}to{transform:translateY(0);}}
+.sheet-grip{width:42px;height:5px;border-radius:3px;background:var(--ivory-line);margin:0 auto 14px;}
+.sheet-ttl{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:29px;color:var(--ink);text-align:center;letter-spacing:.02em;}
+.sheet-sub{font-family:'EB Garamond',serif;text-align:center;color:var(--gold);font-size:12px;letter-spacing:.3em;text-transform:uppercase;margin-top:4px;padding-left:.3em;}
+.field{margin-top:18px;}
+.field label{display:block;font-family:'Cormorant Garamond',serif;font-weight:600;font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:7px;padding-left:.16em;}
+.field .row2{display:flex;gap:13px;}
+.field input{width:100%;font-family:'EB Garamond',serif;font-size:18px;color:var(--ink);background:var(--ivory-3);
+  border:1px solid var(--ivory-line);border-radius:13px;padding:13px 15px;outline:none;transition:border .15s,box-shadow .15s;}
+.field input::placeholder{color:#BCB29D;}
+.field input:focus{border-color:var(--gold-2);box-shadow:0 0 0 3px rgba(201,162,76,.14);}
+.field input.err{border-color:var(--st-maroon);box-shadow:0 0 0 3px rgba(156,58,53,.12);}
+.field .hint{font-family:'EB Garamond',serif;font-size:12px;color:var(--st-maroon);margin-top:5px;}
+.sheet-actions{display:flex;gap:13px;margin-top:26px;}
+.btn{flex:1;border:none;border-radius:14px;padding:15px;font-family:'Cormorant Garamond',serif;font-weight:600;font-size:17px;
+  letter-spacing:.12em;text-transform:uppercase;cursor:pointer;padding-left:calc(.12em + 8px);}
+.btn-primary{background:var(--aubergine-2);color:var(--gold-soft);box-shadow:0 12px 26px -10px rgba(34,26,58,.6);}
+.btn-primary:active{background:var(--aubergine-3);}
+.btn-ghost{background:transparent;color:var(--ink-soft);border:1px solid var(--ivory-line);}
+.btn-ghost:active{background:rgba(43,42,71,.04);}
+.btn-danger{color:var(--st-maroon);}
+.sheet-delete{display:flex;align-items:center;justify-content:center;gap:9px;width:100%;background:transparent;border:none;
+  margin-top:14px;padding:12px;cursor:pointer;color:var(--st-maroon);font-family:'EB Garamond',serif;font-size:15px;letter-spacing:.04em;}
+.sheet-delete:active{opacity:.6;}
+
+/* action menu (row dots / settings) */
+.menu-sheet{position:absolute;left:14px;right:14px;bottom:14px;z-index:51;background:var(--ivory-2);border-radius:22px;overflow:hidden;
+  box-shadow:0 -16px 44px -12px rgba(0,0,0,.4);animation:sheetUp .32s cubic-bezier(.22,.8,.26,1);}
+.menu-name{padding:18px 22px 14px;text-align:center;border-bottom:1px solid var(--ivory-line);}
+.menu-name .mn-n{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:22px;color:var(--ink);}
+.menu-name .mn-m{font-family:'EB Garamond',serif;font-size:13px;color:var(--ink-soft);margin-top:3px;}
+.menu-item{display:flex;align-items:center;gap:14px;width:100%;border:none;background:transparent;padding:17px 24px;cursor:pointer;
+  font-family:'EB Garamond',serif;font-size:17px;color:var(--ink);border-top:1px solid var(--ivory-line);text-align:left;}
+.menu-item:first-of-type{border-top:none;}
+.menu-item:active{background:rgba(169,136,63,.07);}
+.menu-item.danger{color:var(--st-maroon);}
+.menu-item .mi-ic{color:var(--gold);display:flex;width:22px;}
+.menu-item.danger .mi-ic{color:var(--st-maroon);}
+.menu-cancel{width:100%;border:none;background:var(--ivory-3);padding:17px;cursor:pointer;font-family:'Cormorant Garamond',serif;
+  font-weight:600;font-size:16px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);border-top:6px solid var(--ivory);}
+
+/* settings popover */
+.lang-toggle{display:flex;background:var(--ivory-3);border:1px solid var(--ivory-line);border-radius:12px;padding:4px;gap:4px;}
+.lang-toggle button{flex:1;border:none;background:transparent;border-radius:9px;padding:11px;cursor:pointer;
+  font-family:'Cormorant Garamond',serif;font-weight:600;font-size:15px;letter-spacing:.08em;color:var(--ink-soft);}
+.lang-toggle button.on{background:var(--aubergine-2);color:var(--gold-soft);}
+
+.empty{text-align:center;padding:40px 30px;color:var(--ink-soft);font-family:'EB Garamond',serif;font-size:16px;font-style:italic;}
+
+.fade{animation:panelRise .34s cubic-bezier(.22,.7,.25,1);}
+/* transform-only: if the iframe pauses animations at frame 0, content stays visible */
+@keyframes panelRise{from{transform:translateY(8px);}to{transform:translateY(0);}}
+</style>
+</head>
+<body>
+<div id="root"></div>
+
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+
+<script type="text/babel" data-presets="react">
+/* ===== data.jsx ===== */
+/* =====================================================
+   data.jsx — i18n, sample profiles, representative
+   Zi Wei Dou Shu chart engine (mock, internally consistent)
+===================================================== */
+
+/* ---------- Earthly branches ---------- */
+const BRANCHES = ['子','丑','寅','卯','辰','巳','午','未','申','酉','戌','亥'];
+const BRANCH_PINYIN = {子:'Zi',丑:'Chou',寅:'Yin',卯:'Mao',辰:'Chen',巳:'Si',
+  午:'Wu',未:'Wei',申:'Shen',酉:'You',戌:'Xu',亥:'Hai'};
+const STEMS = ['甲','乙','丙','丁','戊','己','庚','辛','壬','癸'];
+
+/* grid cell (row,col) for each branch index — fixed ZWDS layout */
+const GRID = {
+  5:[0,0], 6:[0,1], 7:[0,2], 8:[0,3],
+  4:[1,0],                   9:[1,3],
+  3:[2,0],                  10:[2,3],
+  2:[3,0], 1:[3,1], 0:[3,2],11:[3,3],
+};
+
+/* ---------- Major stars (14) ---------- */
+const MAJORS = {
+  ziwei:   {zh:'紫微', en:'Emperor',    fr:'Empereur',    color:'maroon', tag_en:'Sovereign',  tag_fr:'Souverain'},
+  tianji:  {zh:'天機', en:'Strategist', fr:'Stratège',    color:'purple', tag_en:'Wisdom',     tag_fr:'Sagesse'},
+  taiyang: {zh:'太陽', en:'Sun',        fr:'Soleil',      color:'maroon', tag_en:'Radiance',   tag_fr:'Rayonnement'},
+  wuqu:    {zh:'武曲', en:'General',     fr:'Général',     color:'ink',    tag_en:'Resolve',    tag_fr:'Détermination'},
+  tiantong:{zh:'天同', en:'Harmoniser', fr:'Harmonie',    color:'maroon', tag_en:'Ease',       tag_fr:'Douceur'},
+  lianzhen:{zh:'廉貞', en:'Reformer',   fr:'Réformateur', color:'purple', tag_en:'Discipline', tag_fr:'Discipline'},
+  tianfu:  {zh:'天府', en:'Treasurer',  fr:'Trésorier',   color:'maroon', tag_en:'Abundance',  tag_fr:'Abondance'},
+  taiyin:  {zh:'太陰', en:'Moon',       fr:'Lune',        color:'ink',    tag_en:'Intuition',  tag_fr:'Intuition'},
+  tanlang: {zh:'貪狼', en:'Wolf',       fr:'Loup',        color:'maroon', tag_en:'Desire',     tag_fr:'Désir'},
+  jumen:   {zh:'巨門', en:'Gate',       fr:'Portail',     color:'ink',    tag_en:'Eloquence',  tag_fr:'Éloquence'},
+  tianxiang:{zh:'天相',en:'Minister',   fr:'Ministre',    color:'green',  tag_en:'Counsel',    tag_fr:'Conseil'},
+  tianliang:{zh:'天梁',en:'Elder',      fr:'Aîné',        color:'purple', tag_en:'Protection', tag_fr:'Protection'},
+  qisha:   {zh:'七殺', en:'Commander',  fr:'Commandant',  color:'ink',    tag_en:'Power',      tag_fr:'Puissance'},
+  pojun:   {zh:'破軍', en:'Pioneer',    fr:'Pionnier',    color:'blue',   tag_en:'Upheaval',   tag_fr:'Bouleversement'},
+};
+
+/* ---------- Minor stars pool (representative) ---------- */
+const MINORS = ['祿存','天馬','文昌','文曲','左輔','右弼','天魁','天鉞','擎羊','陀羅',
+  '火星','鈴星','天巫','龍池','鳳閣','紅鸞','天喜','天姚','解神','陰煞','三台','八座'];
+const HUA = [
+  {zh:'祿', cls:'lu',  bg:'#4E7A50'},
+  {zh:'權', cls:'qz', bg:'#9C3A35'},
+  {zh:'科', cls:'ke', bg:'#3E5C8A'},
+  {zh:'忌', cls:'ji', bg:'#393454'},
+];
+
+/* ---------- 12 Palaces ---------- */
+const PALACES = [
+  {zh:'命宮',  en:'Life',     fr:'Destinée'},
+  {zh:'兄弟',  en:'Siblings', fr:'Fratrie'},
+  {zh:'夫妻',  en:'Spouse',   fr:'Conjoint'},
+  {zh:'子女',  en:'Children', fr:'Enfants'},
+  {zh:'財帛',  en:'Wealth',   fr:'Richesse'},
+  {zh:'疾厄',  en:'Health',   fr:'Santé'},
+  {zh:'遷移',  en:'Travel',   fr:'Voyage'},
+  {zh:'交友',  en:'Friends',  fr:'Amis'},
+  {zh:'官祿',  en:'Career',   fr:'Carrière'},
+  {zh:'田宅',  en:'Property', fr:'Foyer'},
+  {zh:'福德',  en:'Fortune',  fr:'Bonheur'},
+  {zh:'父母',  en:'Parents',  fr:'Parents'},
+];
+
+/* ---------- Five Elements (五行) ---------- */
+const ELEMENTS = {
+  wood:  {zh:'木', en:'Wood',  fr:'Bois',  color:'#4E7A50'},
+  fire:  {zh:'火', en:'Fire',  fr:'Feu',   color:'#9C3A35'},
+  earth: {zh:'土', en:'Earth', fr:'Terre', color:'#A9883F'},
+  metal: {zh:'金', en:'Metal', fr:'Métal', color:'#8A8676'},
+  water: {zh:'水', en:'Water', fr:'Eau',   color:'#3E5C8A'},
+};
+const STAR_EL = {
+  ziwei:'earth', tianji:'wood', taiyang:'fire', wuqu:'metal', tiantong:'water',
+  lianzhen:'fire', tianfu:'earth', taiyin:'water', tanlang:'wood', jumen:'water',
+  tianxiang:'water', tianliang:'earth', qisha:'metal', pojun:'water',
+};
+/* Five-Element Bureau (五行局) keyed by the chart's starting age */
+const BUREAU = {
+  2:{zh:'水二局', en:'Water · 2', fr:'Eau · 2',   el:'water'},
+  3:{zh:'木三局', en:'Wood · 3',  fr:'Bois · 3',  el:'wood'},
+  4:{zh:'金四局', en:'Metal · 4', fr:'Métal · 4', el:'metal'},
+  5:{zh:'土五局', en:'Earth · 5', fr:'Terre · 5', el:'earth'},
+  6:{zh:'火六局', en:'Fire · 6',  fr:'Feu · 6',   el:'fire'},
+};
+/* Brightness 廟旺平陷 (representative) */
+const BRIGHT = [
+  {zh:'廟', en:'Exalted',  fr:'Exalté'},
+  {zh:'旺', en:'Thriving', fr:'Prospère'},
+  {zh:'得', en:'Gain',     fr:'Gain'},
+  {zh:'平', en:'Even',     fr:'Neutre'},
+  {zh:'陷', en:'Fallen',   fr:'Décliné'},
+];
+function brightnessOf(key, branch){
+  let h=0; const s=key+'.'+branch;
+  for(let i=0;i<s.length;i++) h=(h*31+s.charCodeAt(i))>>>0;
+  return BRIGHT[h%BRIGHT.length];
+}
+/* Representative one-line readings per major star */
+const READINGS = {
+  ziwei:{en:'natural authority that leads best with dignity and restraint.', fr:'une autorité naturelle qui dirige au mieux avec dignité et mesure.'},
+  tianji:{en:'a quick, strategic mind drawn to systems and good timing.', fr:'un esprit vif et stratégique, attiré par les systèmes et le bon moment.'},
+  taiyang:{en:'generous, outward energy that shines for others.', fr:'une énergie généreuse et rayonnante, tournée vers les autres.'},
+  wuqu:{en:'a decisive, disciplined hand with resources and action.', fr:'une main décidée et disciplinée pour les ressources et l’action.'},
+  tiantong:{en:'a gentle, adaptable nature seeking ease and contentment.', fr:'une nature douce et adaptable, en quête de douceur et de contentement.'},
+  lianzhen:{en:'intensity and principle — transformation through discipline.', fr:'intensité et principes — la transformation par la discipline.'},
+  tianfu:{en:'a steady, prudent keeper of abundance and stability.', fr:'un gardien stable et prudent de l’abondance et de la stabilité.'},
+  taiyin:{en:'intuition and privacy, with a rich inner and emotional life.', fr:'intuition et discrétion, avec une vie intérieure et émotionnelle riche.'},
+  tanlang:{en:'a magnetic, versatile drive powered by desire and talent.', fr:'un élan magnétique et polyvalent, mû par le désir et le talent.'},
+  jumen:{en:'a persuasive, probing voice — power that lives in words.', fr:'une voix persuasive et perspicace — le pouvoir réside dans les mots.'},
+  tianxiang:{en:'fairness and support, a trusted adviser and mediator.', fr:'équité et soutien, un conseiller et médiateur de confiance.'},
+  tianliang:{en:'principle and protection, steady in the face of adversity.', fr:'principes et protection, stable face à l’adversité.'},
+  qisha:{en:'bold independence that thrives under pressure.', fr:'une indépendance audacieuse qui s’épanouit sous pression.'},
+  pojun:{en:'pioneering disruption that clears the old for the new.', fr:'une rupture pionnière qui fait place nette pour le neuf.'},
+};
+
+/* ---------- helpers ---------- */
+const mod12 = n => ((n % 12) + 12) % 12;
+
+function seedFrom(p){
+  const d = (p.date || '1990-01-01').replace(/-/g,'');   // YYYYMMDD
+  const t = (p.time || '12:00').replace(':','');          // HHMM
+  let s = 0, str = d.slice(4) + t + d.slice(2,4);
+  for (let i=0;i<str.length;i++) s = (s*31 + str.charCodeAt(i)) >>> 0;
+  return s;
+}
+
+/* hour branch (時辰) — this part is real */
+function hourBranchIndex(time){
+  if(!time) return 6;
+  const h = parseInt(time.split(':')[0],10) || 0;
+  return Math.floor(((h+1)%24)/2);
+}
+
+/* year sexagenary stem+branch — real for solar year */
+function yearGanzhi(date){
+  const y = parseInt((date||'1990').slice(0,4),10) || 1990;
+  return STEMS[mod12((y-4))%10] + BRANCHES[mod12(y-4)];
+}
+
+/* place the 14 majors given ziwei branch Z */
+function placeMajors(Z){
+  const byBranch = Array.from({length:12},()=>[]);
+  const put=(b,k)=>byBranch[mod12(b)].push(k);
+  put(Z,'ziwei'); put(Z-1,'tianji'); put(Z-3,'taiyang');
+  put(Z-4,'wuqu'); put(Z-5,'tiantong'); put(Z-8,'lianzhen');
+  const F = mod12(4 - Z);
+  put(F,'tianfu'); put(F+1,'taiyin'); put(F+2,'tanlang');
+  put(F+3,'jumen'); put(F+4,'tianxiang'); put(F+5,'tianliang');
+  put(F+6,'qisha'); put(F+10,'pojun');
+  return byBranch;
+}
+
+/* main: build a full representative chart object from a profile */
+function buildChart(p){
+  const seed = seedFrom(p);
+  const Z = seed % 12;
+  const lifeBranch = mod12(Math.floor(seed/7));
+  const bodyBranch = mod12(lifeBranch + 6 + (seed%3));
+  const majors = placeMajors(Z);
+  const startAge = [2,3,4,5,6][seed%5];
+  const forward = (seed & 1) === 0;
+
+  const cells = [];
+  for(let b=0;b<12;b++){
+    // palace name: 命宮 at lifeBranch, going counter-clockwise
+    const palIdx = mod12(lifeBranch - b);
+    // decade ages, stepping from 命宮
+    const steps = forward ? mod12(b - lifeBranch) : mod12(lifeBranch - b);
+    const lo = startAge + steps*10;
+    // minors: 1-2 deterministic
+    const mi = [];
+    const n = 1 + ((seed >> b) & 1);
+    for(let k=0;k<n;k++){
+      mi.push(MINORS[(seed*7 + b*5 + k*13) % MINORS.length]);
+    }
+    // occasional hua transformation on a star
+    let hua = null;
+    if(majors[b].length && ((seed>>b) & 3) === 0){
+      hua = HUA[(seed + b) % HUA.length];
+    }
+    cells.push({
+      branch: b,
+      branchZh: BRANCHES[b],
+      stem: STEMS[(seed + b) % 10],
+      grid: GRID[b],
+      majors: majors[b],
+      minors: mi,
+      hua,
+      palace: PALACES[palIdx],
+      isLife: b === lifeBranch,
+      isBody: b === bodyBranch,
+      ages: [lo, lo+9],
+    });
+  }
+
+  const lifeCell = cells[lifeBranch];
+  const lifeMajor = lifeCell.majors[0] ? MAJORS[lifeCell.majors[0]] : null;
+
+  // element tally + flat list of the 14 majors with their location
+  const elementCounts = {wood:0,fire:0,earth:0,metal:0,water:0};
+  const starList = [];
+  cells.forEach(c=>{
+    c.majors.forEach(k=>{
+      elementCounts[STAR_EL[k]]++;
+      starList.push({key:k, branch:c.branch, branchZh:c.branchZh, palace:c.palace, bright:brightnessOf(k,c.branch)});
+    });
+  });
+
+  return {
+    cells,
+    lifeBranch, bodyBranch,
+    lifeMajorZh: lifeMajor ? lifeMajor.zh : '空宮',
+    lifeBranchZh: BRANCHES[lifeBranch],
+    bodyBranchZh: BRANCHES[bodyBranch],
+    ganzhi: yearGanzhi(p.date),
+    hourBranch: BRANCHES[hourBranchIndex(p.time)],
+    hourPinyin: BRANCH_PINYIN[BRANCHES[hourBranchIndex(p.time)]],
+    elementCounts, starList, startAge, bureau: BUREAU[startAge],
+  };
+}
+
+/* ---------- i18n ---------- */
+const I18N = {
+  en:{
+    subtitle:'Zi Wei Dou Shu',
+    profiles:'Profiles', addProfile:'Add New Profile',
+    navProfiles:'Profiles', navChart:'Ming Pan',
+    overview:'Overview',
+    overviewText:'The Ming Pan reveals the configuration of stars at the moment of birth and shows their influence on your life path, character, and destiny.',
+    stars:'Stars', palaces:'Palaces', elements:'Elements', analysis:'Analysis',
+    lifePalace:'Life Palace', bodyPalace:'Body', sexagenary:'Cycle', hour:'Hour',
+    name:'Name', birthDate:'Birth date', birthTime:'Birth time', birthPlace:'Birth location',
+    save:'Save', cancel:'Cancel', edit:'Edit', delete:'Delete',
+    newProfile:'New Profile', editProfile:'Edit Profile', detailsOf:'Birth Details',
+    nameReq:'A name is required', dateReq:'A birth date is required',
+    namePh:'e.g. Alexandre', placePh:'City, Country',
+    deleteProfile:'Delete this profile',
+    confirmDelete:'Delete this profile permanently?',
+    settings:'Settings', language:'Language', open:'Open Ming Pan',
+    emptyTitle:'No profiles yet', emptyText:'Add a profile to cast its Ming Pan.',
+    selectFirst:'Select a profile to view its Ming Pan.',
+    months:['January','February','March','April','May','June','July','August','September','October','November','December'],
+    palaceOf:'Palace', majorStars:'Major stars', minorStars:'Minor stars', empty:'An empty palace — influence flows from its opposite.',
+    bureauLabel:'Five-Element Bureau', balanceLabel:'Elemental balance', keyDomains:'Key domains',
+    brightnessLabel:'Brightness', noMajor:'No major star — read through the opposing palace.',
+    starsIntro:'The fourteen major stars and where they fall across the twelve palaces.',
+    elementsIntro:'The balance of the five elements among the major stars sets the underlying temperament of the whole chart.',
+    lifeCarries:'Your Life Palace carries',
+    authTag:'Read the map of stars written at the moment of your birth.',
+    continueGoogle:'Continue with Google', continueApple:'Continue with Apple',
+    orEmail:'or continue with email',
+    emailLabel:'Email', passwordLabel:'Password', fullName:'Name',
+    emailPh:'you@example.com', passwordPh:'Your password', namePh2:'Your name',
+    modeSignIn:'Sign in', modeSignUp:'Create account',
+    doSignIn:'Sign In', doSignUp:'Create Account',
+    forgot:'Forgot password?',
+    legal:'By continuing you agree to our Terms & Privacy Policy.',
+    connecting:'Connecting\u2026',
+    invalidEmail:'Enter a valid email address', shortPw:'Use at least 6 characters',
+    account:'Account', signedInAs:'Signed in as', signOut:'Sign out',
+  },
+  fr:{
+    subtitle:'Zi Wei Dou Shu',
+    profiles:'Profils', addProfile:'Ajouter un profil',
+    navProfiles:'Profils', navChart:'Ming Pan',
+    overview:'Aperçu',
+    overviewText:'Le Ming Pan révèle la configuration des étoiles au moment de la naissance et montre leur influence sur votre chemin de vie, votre caractère et votre destinée.',
+    stars:'Étoiles', palaces:'Palais', elements:'Éléments', analysis:'Analyse',
+    lifePalace:'Palais de vie', bodyPalace:'Corps', sexagenary:'Cycle', hour:'Heure',
+    name:'Nom', birthDate:'Date de naissance', birthTime:'Heure de naissance', birthPlace:'Lieu de naissance',
+    save:'Enregistrer', cancel:'Annuler', edit:'Modifier', delete:'Supprimer',
+    newProfile:'Nouveau profil', editProfile:'Modifier le profil', detailsOf:'Détails de naissance',
+    nameReq:'Un nom est requis', dateReq:'Une date est requise',
+    namePh:'ex. Alexandre', placePh:'Ville, Pays',
+    deleteProfile:'Supprimer ce profil',
+    confirmDelete:'Supprimer définitivement ce profil ?',
+    settings:'Réglages', language:'Langue', open:'Ouvrir le Ming Pan',
+    emptyTitle:'Aucun profil', emptyText:'Ajoutez un profil pour dresser son Ming Pan.',
+    selectFirst:'Sélectionnez un profil pour voir son Ming Pan.',
+    months:['janvier','février','mars','avril','mai','juin','juillet','août','septembre','octobre','novembre','décembre'],
+    palaceOf:'Palais', majorStars:'Étoiles majeures', minorStars:'Étoiles mineures', empty:'Un palais vide — son influence vient de son opposé.',
+    bureauLabel:'Cycle des cinq éléments', balanceLabel:'Équilibre élémentaire', keyDomains:'Domaines clés',
+    brightnessLabel:'Éclat', noMajor:'Aucune étoile majeure — à lire via le palais opposé.',
+    starsIntro:'Les quatorze étoiles majeures et leur répartition dans les douze palais.',
+    elementsIntro:'L’équilibre des cinq éléments parmi les étoiles majeures fixe le tempérament profond de tout le thème.',
+    lifeCarries:'Votre Palais de vie porte',
+    authTag:'Lisez la carte des étoiles inscrite à l’instant de votre naissance.',
+    continueGoogle:'Continuer avec Google', continueApple:'Continuer avec Apple',
+    orEmail:'ou continuez avec un e-mail',
+    emailLabel:'E-mail', passwordLabel:'Mot de passe', fullName:'Nom',
+    emailPh:'vous@exemple.com', passwordPh:'Votre mot de passe', namePh2:'Votre nom',
+    modeSignIn:'Connexion', modeSignUp:'Inscription',
+    doSignIn:'Se connecter', doSignUp:'Créer un compte',
+    forgot:'Mot de passe oublié ?',
+    legal:'En continuant, vous acceptez nos Conditions et notre Politique de confidentialité.',
+    connecting:'Connexion\u2026',
+    invalidEmail:'Saisissez une adresse e-mail valide', shortPw:'Au moins 6 caractères',
+    account:'Compte', signedInAs:'Connecté en tant que', signOut:'Se déconnecter',
+  },
+};
+
+/* date formatting: "14 May 1990" / "14 mai 1990" */
+function fmtDate(iso, lang){
+  if(!iso) return '—';
+  const [y,m,d] = iso.split('-').map(Number);
+  const months = I18N[lang].months;
+  return `${d} ${months[(m||1)-1]} ${y}`;
+}
+/* time: "10:30 AM" (en) / "10:30" (fr 24h) */
+function fmtTime(t, lang){
+  if(!t) return '—';
+  if(lang==='fr') return t;
+  let [h,mn] = t.split(':').map(Number);
+  const ap = h>=12 ? 'PM':'AM';
+  h = h%12; if(h===0) h=12;
+  return `${h}:${String(mn).padStart(2,'0')} ${ap}`;
+}
+
+/* ---------- sample profiles ---------- */
+const SAMPLE_PROFILES = [
+  {id:'p1', name:'Alexandre', date:'1990-05-14', time:'10:30', place:'Paris, France'},
+  {id:'p2', name:'Sophie',    date:'1993-08-23', time:'20:15', place:'Lyon, France'},
+  {id:'p3', name:'Lucas',     date:'1988-02-03', time:'06:45', place:'Marseille, France'},
+  {id:'p4', name:'Emma',      date:'1995-11-11', time:'14:20', place:'Nice, France'},
+];
+
+Object.assign(window, {
+  MAJORS, MINORS, HUA, PALACES, BRANCHES, BRANCH_PINYIN,
+  buildChart, I18N, fmtDate, fmtTime, SAMPLE_PROFILES,
+});
+
+
+/* ===== icons.jsx ===== */
+/* =====================================================
+   icons.jsx — simple geometric SVG icons & decorative art
+===================================================== */
+
+/* Big-Dipper style constellation inside the emblem ring */
+function Constellation({size=40, color='currentColor', stroke=1.1}){
+  // seven stars + connecting lines (simple dots + lines only)
+  const pts = [[7,26],[14,22],[21,24],[28,20],[30,13],[24,10],[19,14]];
+  return (
+    <svg width={size} height={size} viewBox="0 0 40 40" fill="none">
+      <polyline points={pts.map(p=>p.join(',')).join(' ')} stroke={color} strokeWidth={stroke} strokeLinecap="round" strokeLinejoin="round" opacity="0.7"/>
+      {pts.map((p,i)=>(
+        <circle key={i} cx={p[0]} cy={p[1]} r={i===4||i===0?2:1.5} fill={color}/>
+      ))}
+      <circle cx="33" cy="30" r="1" fill={color} opacity="0.6"/>
+      <circle cx="10" cy="13" r="1" fill={color} opacity="0.6"/>
+    </svg>
+  );
+}
+
+/* Sky-chart / luopan style icon for the Ming Pan nav tab */
+function SkyChart({size=26, color='currentColor'}){
+  return (
+    <svg width={size} height={size} viewBox="0 0 32 32" fill="none" stroke={color} strokeWidth="1.1">
+      <circle cx="16" cy="16" r="13"/>
+      <circle cx="16" cy="16" r="7.5"/>
+      <line x1="16" y1="3" x2="16" y2="29"/>
+      <line x1="3" y1="16" x2="29" y2="16"/>
+      <line x1="6.8" y1="6.8" x2="25.2" y2="25.2"/>
+      <line x1="25.2" y1="6.8" x2="6.8" y2="25.2"/>
+      <circle cx="16" cy="16" r="1.6" fill={color} stroke="none"/>
+    </svg>
+  );
+}
+
+function Gear({size=24, color='currentColor'}){
+  const teeth=[];
+  for(let i=0;i<8;i++){const a=i*Math.PI/4;teeth.push(
+    <line key={i} x1={12+Math.cos(a)*7} y1={12+Math.sin(a)*7} x2={12+Math.cos(a)*10} y2={12+Math.sin(a)*10}/>);}
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="1.3" strokeLinecap="round">
+      <circle cx="12" cy="12" r="6.5"/><circle cx="12" cy="12" r="2.4"/>{teeth}
+    </svg>
+  );
+}
+
+const Chevron = ({size=20,color='currentColor'}) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="9 6 15 12 9 18"/></svg>
+);
+const ChevronDown = ({size=18,color='currentColor'}) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+);
+const Dots = ({size=20,color='currentColor'}) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill={color}><circle cx="12" cy="5" r="1.7"/><circle cx="12" cy="12" r="1.7"/><circle cx="12" cy="19" r="1.7"/></svg>
+);
+const DotsH = ({size=22,color='currentColor'}) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill={color}><circle cx="5" cy="12" r="1.7"/><circle cx="12" cy="12" r="1.7"/><circle cx="19" cy="12" r="1.7"/></svg>
+);
+const Plus = ({size=22,color='currentColor'}) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="1.4" strokeLinecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+);
+const Back = ({size=24,color='currentColor'}) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="11 6 5 12 11 18"/></svg>
+);
+const EditIcon = ({size=20,color='currentColor'}) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"><path d="M16.5 4.5l3 3L8 19l-4 1 1-4z"/></svg>
+);
+const TrashIcon = ({size=20,color='currentColor'}) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"><polyline points="4 7 20 7"/><path d="M9 7V5h6v2"/><path d="M6 7l1 13h10l1-13"/></svg>
+);
+const OpenIcon = ({size=20,color='currentColor'}) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="9"/><line x1="12" y1="3" x2="12" y2="21"/><line x1="3" y1="12" x2="21" y2="12"/></svg>
+);
+
+/* tab-bar icons (overview etc) — simple line glyphs */
+const TabOverview = ({size=22,color='currentColor'}) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="1.1">
+    <circle cx="12" cy="12" r="8.5"/>{[0,1,2,3,4,5,6,7].map(i=>{const a=i*Math.PI/4;return <line key={i} x1={12+Math.cos(a)*3} y1={12+Math.sin(a)*3} x2={12+Math.cos(a)*8.5} y2={12+Math.sin(a)*8.5}/>;})}<circle cx="12" cy="12" r="2.4" fill={color} stroke="none"/>
+  </svg>
+);
+const TabStars = ({size=22,color='currentColor'}) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="1.1" strokeLinejoin="round"><path d="M12 3l2.2 5.6L20 9.2l-4.4 3.7L17 19l-5-3.2L7 19l1.4-6.1L4 9.2l5.8-.6z"/></svg>
+);
+const TabPalaces = ({size=22,color='currentColor'}) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="1.1" strokeLinecap="round"><path d="M7 7l5-4 5 4M5 21l2-9M19 21l-2-9M9 21l-1.5-7M15 21l1.5-7M11 21v-6M13 21v-6"/></svg>
+);
+const TabElements = ({size=22,color='currentColor'}) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="1.1" strokeLinecap="round"><path d="M4 17q4-2 8 0t8 0M4 13q4-2 8 0t8 0M4 9q4-2 8 0t8 0"/></svg>
+);
+const TabAnalysis = ({size=22,color='currentColor'}) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="1.1" strokeLinecap="round" strokeLinejoin="round"><polyline points="4 15 9 9 13 13 20 5"/><line x1="4" y1="20" x2="20" y2="20"/></svg>
+);
+
+/* Decorative ink-wash mountain mist (light screen). Built from soft
+   gradients + a few low-opacity peak polygons — abstract, not literal. */
+function MistMountains(){
+  return (
+    <svg className="mist" viewBox="0 0 438 205" preserveAspectRatio="xMidYMax slice" fill="none">
+      <defs>
+        <linearGradient id="m-far" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stopColor="#CBB488" stopOpacity="0.42"/>
+          <stop offset="1" stopColor="#CBB488" stopOpacity="0.06"/>
+        </linearGradient>
+        <linearGradient id="m-mid" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stopColor="#B0935E" stopOpacity="0.52"/>
+          <stop offset="1" stopColor="#B0935E" stopOpacity="0.12"/>
+        </linearGradient>
+        <linearGradient id="m-near" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stopColor="#8A6E3C" stopOpacity="0.62"/>
+          <stop offset="1" stopColor="#7C6234" stopOpacity="0.30"/>
+        </linearGradient>
+        <linearGradient id="m-fore" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stopColor="#6E5528" stopOpacity="0.50"/>
+          <stop offset="1" stopColor="#5E481F" stopOpacity="0.20"/>
+        </linearGradient>
+        <radialGradient id="m-haze" cx="0.5" cy="0.62" r="0.6">
+          <stop offset="0" stopColor="#F4ECDD" stopOpacity="0.95"/>
+          <stop offset="0.55" stopColor="#F3EADB" stopOpacity="0.5"/>
+          <stop offset="1" stopColor="#F3EADB" stopOpacity="0"/>
+        </radialGradient>
+      </defs>
+      {/* distant ridge — full width */}
+      <path d="M0,96 L40,70 L84,98 L132,58 L186,104 L240,72 L296,108 L350,66 L398,102 L438,80 L438,205 L0,205 Z" fill="url(#m-far)"/>
+      {/* mid ridge */}
+      <path d="M0,138 L58,96 L118,140 L176,92 L232,142 L298,104 L356,146 L408,108 L438,132 L438,205 L0,205 Z" fill="url(#m-mid)"/>
+      {/* near ridge — heavier */}
+      <path d="M0,176 L46,134 L104,178 L162,138 L222,182 L284,140 L340,180 L398,138 L438,162 L438,205 L0,205 Z" fill="url(#m-near)"/>
+      {/* foreground base — full weight at the bottom */}
+      <path d="M0,205 L0,186 L60,166 L128,200 L190,170 L256,202 L320,172 L384,198 L438,176 L438,205 Z" fill="url(#m-fore)"/>
+      <ellipse cx="219" cy="150" rx="205" ry="66" fill="url(#m-haze)"/>
+    </svg>
+  );
+}
+
+/* Center-cell ink mist for the chart */
+function CenterMist(){
+  return (
+    <svg className="center-mist" viewBox="0 0 200 120" preserveAspectRatio="xMidYMax slice" fill="none">
+      <defs>
+        <linearGradient id="cm-a" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stopColor="#B59A6A" stopOpacity="0.26"/>
+          <stop offset="1" stopColor="#B59A6A" stopOpacity="0"/>
+        </linearGradient>
+        <linearGradient id="cm-b" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stopColor="#8C7242" stopOpacity="0.30"/>
+          <stop offset="1" stopColor="#8C7242" stopOpacity="0.02"/>
+        </linearGradient>
+      </defs>
+      <path d="M0,70 L40,46 L86,72 L130,44 L170,72 L200,52 L200,120 L0,120 Z" fill="url(#cm-a)"/>
+      <path d="M0,120 L46,86 L96,118 L150,88 L200,116 L200,120 Z" fill="url(#cm-b)"/>
+    </svg>
+  );
+}
+
+/* Starfield for the dark chart screen */
+/* Animated celestial backdrop for the dark chart screen:
+   parallax twinkling stars, drifting nebula glows, occasional shooting stars.
+   Base (paused) state keeps stars visible; motion gated via CSS media query. */
+function StarField({seed=7}){
+  const data = React.useMemo(()=>{
+    let s = (seed*9301+49297) >>> 0;
+    const rnd=()=>{ s=(s*9301+49297)%233280; return s/233280; };
+    const mk = (n, big) => Array.from({length:n},()=>({
+      x: rnd()*100, y: rnd()*100,
+      size: (big ? rnd()*1.6+1.3 : rnd()*1.1+0.7),
+      o0: rnd()*0.25+0.12, o1: rnd()*0.4+0.55,
+      dur: rnd()*4+3.2, delay: -rnd()*6,
+      gold: rnd()>0.45,
+    }));
+    return {
+      far: mk(30,false),
+      near: mk(20,true),
+      nebulas: [
+        {x:14, y:10, s:200, c:'rgba(150,110,200,0.34)', dur:34, delay:0},
+        {x:82, y:8,  s:170, c:'rgba(201,162,76,0.30)',  dur:42, delay:-8},
+        {x:60, y:30, s:150, c:'rgba(110,90,170,0.26)',  dur:38, delay:-16},
+      ],
+      shooting: [
+        {x:8,  y:14, dur:11, delay:3},
+        {x:55, y:6,  dur:15, delay:9},
+      ],
+    };
+  },[seed]);
+
+  const Star = (st,i,layer)=>(
+    <span key={layer+i} className="star" style={{
+      left:st.x+'%', top:st.y+'%', width:st.size+'px', height:st.size+'px',
+      background: st.gold ? '#F0E2B8' : '#CFC6F2',
+      boxShadow: `0 0 ${st.size*2.2}px ${st.size*0.6}px ${st.gold?'rgba(240,226,184,0.5)':'rgba(190,180,235,0.45)'}`,
+      '--o0':st.o0, '--o1':st.o1, '--dur':st.dur+'s', '--delay':st.delay+'s',
+    }}/>
+  );
+
+  return (
+    <div className="c-stars">
+      {data.nebulas.map((n,i)=>(
+        <span key={'n'+i} className="nebula" style={{
+          left:n.x+'%', top:n.y+'%', width:n.s+'px', height:n.s+'px',
+          background:`radial-gradient(circle, ${n.c}, transparent 68%)`,
+          '--ndur':n.dur+'s', '--ndelay':n.delay+'s',
+        }}/>
+      ))}
+      <div className="star-layer l1">{data.far.map((st,i)=>Star(st,i,'f'))}</div>
+      <div className="star-layer l2">{data.near.map((st,i)=>Star(st,i,'n'))}</div>
+      {data.shooting.map((sh,i)=>(
+        <span key={'s'+i} className="shooting" style={{
+          left:sh.x+'%', top:sh.y+'%', '--sdur':sh.dur+'s', '--sdelay':sh.delay+'s',
+        }}/>
+      ))}
+    </div>
+  );
+}
+
+Object.assign(window, {
+  Constellation, SkyChart, Gear, Chevron, ChevronDown, Dots, DotsH, Plus, Back,
+  EditIcon, TrashIcon, OpenIcon,
+  TabOverview, TabStars, TabPalaces, TabElements, TabAnalysis,
+  MistMountains, CenterMist, StarField,
+});
+
+
+/* ===== profiles.jsx ===== */
+/* =====================================================
+   profiles.jsx — Status bar, Profiles screen, sheets
+===================================================== */
+
+function StatusBar({theme='dark'}){
+  const [now,setNow] = React.useState(()=>clock());
+  React.useEffect(()=>{
+    const id=setInterval(()=>setNow(clock()),10000);
+    return ()=>clearInterval(id);
+  },[]);
+  function clock(){
+    const d=new Date();let h=d.getHours();const m=d.getMinutes();
+    return `${h}:${String(m).padStart(2,'0')}`;
+  }
+  return (
+    <div className={`statusbar ${theme==='dark'?'sb-dark':'sb-light'}`}>
+      <span className="sb-time">{now}</span>
+      <span className="sb-icons">
+        <span className="sb-bars"><i/><i/><i/><i/></span>
+        <svg width="17" height="13" viewBox="0 0 17 13" fill="none" style={{marginTop:'1px'}}>
+          <path d="M8.5 11.5l-.01.01M8.5 3.2q3.6 0 6.1 2.2M8.5 3.2q-3.6 0-6.1 2.2M8.5 7q1.9 0 3.3 1.2M8.5 7q-1.9 0-3.3 1.2" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round"/>
+          <circle cx="8.5" cy="11.4" r="1.1" fill="currentColor"/>
+        </svg>
+        <span className="sb-batt"><i/></span>
+      </span>
+    </div>
+  );
+}
+
+/* ---- a single profile row ---- */
+function ProfileRow({p, t, lang, onOpen, onMenu}){
+  return (
+    <div className="p-row" onClick={onOpen}>
+      <div className="pr-main">
+        <div className="pr-name">{p.name}</div>
+        <div className="pr-meta">{fmtDate(p.date,lang)}<b>·</b>{fmtTime(p.time,lang)}<b>·</b>{p.place||'—'}</div>
+      </div>
+      <span className="chev"><Chevron size={19}/></span>
+      <button className="dots-btn" onClick={(e)=>{e.stopPropagation();onMenu();}} aria-label="menu"><Dots/></button>
+    </div>
+  );
+}
+
+/* ---- Profiles screen ---- */
+function ProfilesScreen({profiles, t, lang, onOpenChart, onAdd, onRowMenu, onSettings}){
+  return (
+    <div className="screen p-screen">
+      <StatusBar theme="dark"/>
+      <div className="scroll">
+        <div className="p-hero">
+          <div className="p-topbar">
+            <button className="icon-btn" onClick={onSettings} aria-label="settings"><Gear/></button>
+          </div>
+          <div className="p-emblem">
+            <div className="emblem-ring"><Constellation size={44} color="var(--gold)"/></div>
+            <h1 className="p-title">M<small>ING</small> P<small>AN</small></h1>
+            <div className="p-sub">{t.subtitle}</div>
+          </div>
+          <MistMountains/>
+        </div>
+
+        <div className="p-section">
+          <span className="dash"><span className="dot">◆</span></span>
+          <span className="lbl">{t.profiles}</span>
+          <span className="dash r"><span className="dot">◆</span></span>
+        </div>
+        <div className="p-dia">✦</div>
+
+        <div className="p-list">
+          {profiles.length===0 ? (
+            <div className="empty">{t.emptyText}</div>
+          ) : profiles.map(p=>(
+            <ProfileRow key={p.id} p={p} t={t} lang={lang}
+              onOpen={()=>onOpenChart(p.id)} onMenu={()=>onRowMenu(p.id)}/>
+          ))}
+          <button className="add-row" onClick={onAdd}>
+            <span className="plus"><Plus/></span>{t.addProfile}
+          </button>
+        </div>
+        <div style={{height:'14px'}}/>
+      </div>
+    </div>
+  );
+}
+
+/* ---- Add / Edit profile bottom sheet ---- */
+function ProfileSheet({init, t, onClose, onSave, onDelete}){
+  const editing = !!init;
+  const [name,setName]   = React.useState(init?.name || '');
+  const [date,setDate]   = React.useState(init?.date || '');
+  const [time,setTime]   = React.useState(init?.time || '');
+  const [place,setPlace] = React.useState(init?.place || '');
+  const [err,setErr]     = React.useState({});
+
+  function submit(){
+    const e={};
+    if(!name.trim()) e.name=t.nameReq;
+    if(!date) e.date=t.dateReq;
+    setErr(e);
+    if(Object.keys(e).length) return;
+    onSave({id:init?.id, name:name.trim(), date, time, place:place.trim()});
+  }
+
+  return (
+    <React.Fragment>
+      <div className="scrim" onClick={onClose}/>
+      <div className="sheet" role="dialog">
+        <div className="sheet-grip"/>
+        <div className="sheet-ttl">{editing ? t.editProfile : t.newProfile}</div>
+        <div className="sheet-sub">{t.detailsOf}</div>
+
+        <div className="field">
+          <label>{t.name}</label>
+          <input className={err.name?'err':''} value={name} placeholder={t.namePh}
+            onChange={e=>setName(e.target.value)} />
+          {err.name && <div className="hint">{err.name}</div>}
+        </div>
+
+        <div className="field">
+          <label>{t.birthDate}</label>
+          <input type="date" className={err.date?'err':''} value={date}
+            onChange={e=>setDate(e.target.value)} max="2030-12-31"/>
+          {err.date && <div className="hint">{err.date}</div>}
+        </div>
+
+        <div className="field">
+          <label>{t.birthTime}</label>
+          <input type="time" value={time} onChange={e=>setTime(e.target.value)}/>
+        </div>
+
+        <div className="field">
+          <label>{t.birthPlace}</label>
+          <input value={place} placeholder={t.placePh} onChange={e=>setPlace(e.target.value)}/>
+        </div>
+
+        <div className="sheet-actions">
+          <button className="btn btn-ghost" onClick={onClose}>{t.cancel}</button>
+          <button className="btn btn-primary" onClick={submit}>{t.save}</button>
+        </div>
+        {editing && (
+          <button className="sheet-delete" onClick={()=>onDelete(init.id)}>
+            <TrashIcon size={17}/>{t.deleteProfile}
+          </button>
+        )}
+      </div>
+    </React.Fragment>
+  );
+}
+
+/* ---- Row action menu (open / edit / delete) ---- */
+function RowMenu({p, t, lang, onClose, onOpen, onEdit, onDelete}){
+  return (
+    <React.Fragment>
+      <div className="scrim" onClick={onClose}/>
+      <div className="menu-sheet" role="menu">
+        <div className="menu-name">
+          <div className="mn-n">{p.name}</div>
+          <div className="mn-m">{fmtDate(p.date,lang)} · {p.place||'—'}</div>
+        </div>
+        <button className="menu-item" onClick={onOpen}><span className="mi-ic"><OpenIcon/></span>{t.open}</button>
+        <button className="menu-item" onClick={onEdit}><span className="mi-ic"><EditIcon/></span>{t.edit}</button>
+        <button className="menu-item danger" onClick={onDelete}><span className="mi-ic"><TrashIcon/></span>{t.delete}</button>
+        <button className="menu-cancel" onClick={onClose}>{t.cancel}</button>
+      </div>
+    </React.Fragment>
+  );
+}
+
+/* ---- Settings sheet (language toggle) ---- */
+function SettingsSheet({t, lang, onLang, auth, onSignOut, onClose}){
+  const initial = (auth?.name || auth?.email || '?').trim().charAt(0).toUpperCase();
+  return (
+    <React.Fragment>
+      <div className="scrim" onClick={onClose}/>
+      <div className="sheet" role="dialog" style={{paddingBottom:'26px'}}>
+        <div className="sheet-grip"/>
+        <div className="sheet-ttl">{t.settings}</div>
+        <div className="sheet-sub">M<span style={{letterSpacing:0}}>ING</span> P<span style={{letterSpacing:0}}>AN</span></div>
+
+        {auth && (
+          <div className="field" style={{marginTop:'22px'}}>
+            <label>{t.account}</label>
+            <div className="acct-box">
+              <span className="acct-av">{initial}</span>
+              <span className="acct-info">
+                <span className="acct-name">{auth.name}</span>
+                <span className="acct-email">{auth.email}</span>
+              </span>
+              <span className="acct-prov">{auth.provider}</span>
+            </div>
+          </div>
+        )}
+
+        <div className="field" style={{marginTop:'18px'}}>
+          <label>{t.language}</label>
+          <div className="lang-toggle">
+            <button className={lang==='en'?'on':''} onClick={()=>onLang('en')}>English</button>
+            <button className={lang==='fr'?'on':''} onClick={()=>onLang('fr')}>Français</button>
+          </div>
+        </div>
+
+        <div className="sheet-actions" style={{marginTop:'22px'}}>
+          <button className="btn btn-primary" onClick={onClose}>{t.save}</button>
+        </div>
+        {auth && (
+          <button className="signout-btn" onClick={onSignOut}>
+            <Back size={18}/>{t.signOut}
+          </button>
+        )}
+      </div>
+    </React.Fragment>
+  );
+}
+
+/* ---- bottom nav ---- */
+function BottomNav({active, t, onProfiles, onChart, canChart}){
+  return (
+    <React.Fragment>
+      <div className="bottomnav">
+        <button className={`navitem ${active==='profiles'?'active':''}`} onClick={onProfiles}>
+          <span className="ni-ic"><Constellation size={26} color="currentColor" stroke={1.2}/></span>
+          <span className="ni-lbl">{t.navProfiles}</span>
+          <span className="ni-dot"/>
+        </button>
+        <button className={`navitem ${active==='chart'?'active':''}`} onClick={onChart} disabled={!canChart} style={{opacity:canChart?1:0.45}}>
+          <span className="ni-ic"><SkyChart size={26} color="currentColor"/></span>
+          <span className="ni-lbl">{t.navChart}</span>
+          <span className="ni-dot"/>
+        </button>
+      </div>
+      <div className="home-ind"><i/></div>
+    </React.Fragment>
+  );
+}
+
+Object.assign(window, {
+  StatusBar, ProfilesScreen, ProfileSheet, RowMenu, SettingsSheet, BottomNav,
+});
+
+
+/* ===== chart.jsx ===== */
+/* =====================================================
+   chart.jsx — Ming Pan chart screen, palace grid,
+   tap-to-highlight, overview / palace detail panel
+===================================================== */
+
+/* one palace cell */
+function PalaceCell({cell, t, lang, active, onTap, rowClass}){
+  const ages = `${cell.ages[0]}-${cell.ages[1]}`;
+  return (
+    <div className={`cell ${active?'active':''} ${rowClass}`} onClick={onTap}>
+      {cell.hua && (
+        <span className="hua-badge"><span className="hb" style={{background:cell.hua.bg}}>{cell.hua.zh}</span></span>
+      )}
+      <div className="majors">
+        {cell.majors.length
+          ? cell.majors.map(k=>(
+              <span key={k} className={`maj ${MAJORS[k].color}`}>{MAJORS[k].zh}</span>
+            ))
+          : <span className="maj ink" style={{opacity:.4,writingMode:'horizontal-tb',fontSize:'17px'}}>空</span>}
+      </div>
+      <div className="minors">
+        {cell.minors.map((m,i)=>(<span key={i} className="min">{m}</span>))}
+      </div>
+      <div className="foot">
+        <span className="branch">{cell.branchZh}</span>
+        <span className="ages">{ages}</span>
+      </div>
+    </div>
+  );
+}
+
+/* the 4x4 board */
+function Board({chart, t, lang, activeBranch, onTapBranch}){
+  // build a 4x4 matrix of branch indices (perimeter) + center marker
+  const slots = {};
+  chart.cells.forEach(c=>{ slots[`${c.grid[0]}-${c.grid[1]}`] = c; });
+  const rendered = [];
+  for(let r=0;r<4;r++){
+    for(let col=0;col<4;col++){
+      if(r===1 && col===1){
+        // place the center cell once
+        rendered.push(
+          <div key="center" className="center-cell">
+            <CenterMist/>
+            <div className="cc-in">
+              <div className="cc-pal">{PALACES[0].zh}</div>
+              <div className="cc-big">{chart.lifeMajorZh}</div>
+              <div className="cc-br">{chart.lifeBranchZh}宮</div>
+              <div className="cc-body">身宮：{chart.bodyBranchZh}</div>
+            </div>
+          </div>
+        );
+        continue;
+      }
+      if((r===1&&col===2)||(r===2&&col===1)||(r===2&&col===2)) continue; // covered by center
+      const c = slots[`${r}-${col}`];
+      if(!c) continue;
+      rendered.push(
+        <PalaceCell key={c.branch} cell={c} t={t} lang={lang}
+          active={activeBranch===c.branch} onTap={()=>onTapBranch(c.branch)}
+          rowClass={r===3?'r4':''}/>
+      );
+    }
+  }
+  return <div className="grid4">{rendered}</div>;
+}
+
+/* bottom tab bar — all tabs live */
+function ChartTabs({t, active, onSelect}){
+  const tabs=[
+    {k:'overview', lbl:t.overview, Ic:TabOverview},
+    {k:'stars', lbl:t.stars, Ic:TabStars},
+    {k:'palaces', lbl:t.palaces, Ic:TabPalaces},
+    {k:'elements', lbl:t.elements, Ic:TabElements},
+    {k:'analysis', lbl:t.analysis, Ic:TabAnalysis},
+  ];
+  return (
+    <div className="c-tabs">
+      {tabs.map(tb=>(
+        <button key={tb.k} className={`tab ${active===tb.k?'on':''}`} onClick={()=>onSelect(tb.k)}>
+          <span className="tic"><tb.Ic size={22}/></span>
+          <span className="tlbl">{tb.lbl}</span>
+        </button>
+      ))}
+    </div>
+  );
+}
+
+/* shared panel header */
+function PanHead({label}){
+  return (
+    <div className="pan-head">
+      <span className="ph-dia">◆</span>
+      <span className="ph-lbl">{label}</span>
+      <span className="ph-line"/>
+    </div>
+  );
+}
+
+/* the overview / palace-detail panel */
+function OverviewPanel({chart, t, lang, activeBranch}){
+  const cell = activeBranch==null ? null : chart.cells[activeBranch];
+  return (
+    <div className="c-panel">
+      <div className="watermark">天命</div>
+      <div className="pan-head">
+        <span className="ph-dia">◆</span>
+        <span className="ph-lbl">{cell ? (lang==='en'?cell.palace.en:cell.palace.fr) : t.overview}</span>
+        <span className="ph-line"/>
+      </div>
+
+      {!cell && (
+        <div className="pan-body">{t.overviewText}</div>
+      )}
+
+      {cell && (
+        <div className="pan-detail fade">
+          <div className="pd-row" style={{justifyContent:'space-between',alignItems:'center'}}>
+            <div className="pd-star">
+              <span className="pd-zh">{cell.palace.zh}</span>
+              <span className="pd-en">· {cell.branchZh}{lang==='en'?` (${BRANCH_PINYIN[cell.branchZh]})`:''}</span>
+            </div>
+            <span className="pd-tag">{cell.ages[0]}–{cell.ages[1]}</span>
+          </div>
+
+          {cell.majors.length>0 ? (
+            <React.Fragment>
+              <div style={{fontFamily:'EB Garamond',fontSize:'12px',letterSpacing:'.16em',textTransform:'uppercase',color:'var(--gold)',marginTop:'14px'}}>{t.majorStars}</div>
+              <div className="pd-stars">
+                {cell.majors.map(k=>(
+                  <span key={k} className="pd-star">
+                    <span className="pd-zh" style={{color:`var(--st-${MAJORS[k].color})`}}>{MAJORS[k].zh}</span>
+                    <span className="pd-en">{lang==='en'?MAJORS[k].en:MAJORS[k].fr} · {lang==='en'?MAJORS[k].tag_en:MAJORS[k].tag_fr}</span>
+                  </span>
+                ))}
+              </div>
+            </React.Fragment>
+          ) : (
+            <div className="pan-body" style={{marginTop:'12px'}}>{t.empty}</div>
+          )}
+
+          {cell.minors.length>0 && (
+            <React.Fragment>
+              <div style={{fontFamily:'EB Garamond',fontSize:'12px',letterSpacing:'.16em',textTransform:'uppercase',color:'var(--gold)',marginTop:'16px'}}>{t.minorStars}</div>
+              <div className="pd-stars">
+                {cell.minors.map((m,i)=>(
+                  <span key={i} className="pd-zh" style={{fontSize:'17px',color:'var(--st-minor)'}}>{m}</span>
+                ))}
+                {cell.hua && <span className="pd-zh" style={{fontSize:'17px',color:cell.hua.bg}}>化{cell.hua.zh}</span>}
+              </div>
+            </React.Fragment>
+          )}
+        </div>
+      )}
+    </div>
+  );
+}
+
+/* ---- Stars panel: the 14 majors and where they fall ---- */
+function StarsPanel({chart, t, lang, activeBranch, onPick}){
+  const order = Object.keys(MAJORS);
+  const list = [...chart.starList].sort((a,b)=>order.indexOf(a.key)-order.indexOf(b.key));
+  return (
+    <div className="c-panel">
+      <div className="watermark">星</div>
+      <PanHead label={t.stars}/>
+      <div className="pan-list fade">
+        {list.map(s=>{
+          const M=MAJORS[s.key]; const el=ELEMENTS[STAR_EL[s.key]];
+          return (
+            <button key={s.key+s.branch} className={`pl-row ${activeBranch===s.branch?'on':''}`} onClick={()=>onPick(s.branch)}>
+              <span className="pl-zh" style={{color:`var(--st-${M.color})`}}>{M.zh}</span>
+              <span className="pl-main">
+                <span className="pl-en">{lang==='en'?M.en:M.fr}</span>
+                <span className="pl-meta">{lang==='en'?M.tag_en:M.tag_fr} · {lang==='en'?s.palace.en:s.palace.fr} {s.branchZh}</span>
+              </span>
+              <span className="el-chip" style={{color:el.color,borderColor:el.color}}>{el.zh} {lang==='en'?el.en:el.fr}</span>
+              <span className="bright-badge" title={t.brightnessLabel}>{s.bright.zh}</span>
+            </button>
+          );
+        })}
+      </div>
+    </div>
+  );
+}
+
+/* ---- Palaces panel: the 12 palaces as an index ---- */
+function PalacesPanel({chart, t, lang, activeBranch, onPick}){
+  const rows = [...chart.cells].sort((a,b)=>
+    PALACES.findIndex(p=>p.zh===a.palace.zh) - PALACES.findIndex(p=>p.zh===b.palace.zh));
+  return (
+    <div className="c-panel">
+      <div className="watermark">宮</div>
+      <PanHead label={t.palaces}/>
+      <div className="pan-list fade">
+        {rows.map(c=>(
+          <button key={c.branch} className={`pl-row ${activeBranch===c.branch?'on':''}`} onClick={()=>onPick(c.branch)}>
+            <span className="pl-pal">
+              <span className="pl-en" style={{fontFamily:"'Noto Serif TC',serif",fontSize:'18px',color:'var(--st-ink)'}}>{c.palace.zh} · {lang==='en'?c.palace.en:c.palace.fr}</span>
+              <span className="pl-meta">{c.isLife?'命 · ':''}{c.isBody?'身 · ':''}{c.ages[0]}–{c.ages[1]}</span>
+            </span>
+            <span className="pl-stars">
+              {c.majors.length
+                ? c.majors.map(k=><span key={k} style={{color:`var(--st-${MAJORS[k].color})`}}>{MAJORS[k].zh}</span>)
+                : <span style={{opacity:.35,color:'var(--st-ink)'}}>空</span>}
+            </span>
+            <span className="pl-br">{c.branchZh}</span>
+          </button>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+/* ---- Elements panel: five-element bureau + balance ---- */
+function ElementsPanel({chart, t, lang}){
+  const order=['wood','fire','earth','metal','water'];
+  const max = Math.max(...Object.values(chart.elementCounts), 1);
+  return (
+    <div className="c-panel">
+      <div className="watermark">五行</div>
+      <PanHead label={t.elements}/>
+      <div className="fade">
+        <div className="bureau-row">
+          <span className="bureau-label">{t.bureauLabel}</span>
+          <span className="bureau-val" style={{color:ELEMENTS[chart.bureau.el].color}}>
+            {chart.bureau.zh} · {lang==='en'?ELEMENTS[chart.bureau.el].en:ELEMENTS[chart.bureau.el].fr}
+          </span>
+        </div>
+        <div className="pan-sublbl" style={{marginTop:'20px'}}>{t.balanceLabel}</div>
+        <div className="el-bars">
+          {order.map(el=>{
+            const v=chart.elementCounts[el]; const E=ELEMENTS[el];
+            return (
+              <div key={el} className="el-bar">
+                <span className="el-name" style={{color:E.color}}>{E.zh}<small>{lang==='en'?E.en:E.fr}</small></span>
+                <span className="el-track"><span className="el-fill" style={{width:`${(v/max)*100}%`,background:E.color}}/></span>
+                <span className="el-num">{v}</span>
+              </div>
+            );
+          })}
+        </div>
+        <div className="pan-body" style={{maxWidth:'92%'}}>{t.elementsIntro}</div>
+      </div>
+    </div>
+  );
+}
+
+/* ---- Analysis panel: life palace + key domains ---- */
+function AnalysisPanel({chart, t, lang}){
+  const find = zh => chart.cells.find(c=>c.palace.zh===zh);
+  const life = find('命宮');
+  const domains = ['財帛','官祿','夫妻'].map(find).filter(Boolean);
+  const lead = c => (c && c.majors[0]) ? MAJORS[c.majors[0]] : null;
+  const lifeStar = lead(life);
+  return (
+    <div className="c-panel">
+      <div className="watermark">析</div>
+      <PanHead label={t.analysis}/>
+      <div className="fade">
+        <div className="an-lead">
+          <span className="an-lead-zh" style={{color:lifeStar?`var(--st-${lifeStar.color})`:'var(--st-ink)'}}>{lifeStar?lifeStar.zh:'空宮'}</span>
+          <span className="an-lead-meta">
+            <span className="pd-tag">{lang==='en'?life.palace.en:life.palace.fr}</span>
+            <span style={{marginLeft:'9px',color:'var(--ink-soft)',fontFamily:"'EB Garamond',serif",fontSize:'14px'}}>{life.branchZh} · {life.ages[0]}–{life.ages[1]}</span>
+          </span>
+          <p className="an-read">
+            {lifeStar
+              ? `${t.lifeCarries} ${lang==='en'?lifeStar.en:lifeStar.fr} — ${lang==='en'?READINGS[life.majors[0]].en:READINGS[life.majors[0]].fr}`
+              : t.empty}
+          </p>
+        </div>
+        <div className="pan-sublbl">{t.keyDomains}</div>
+        <div className="an-domains">
+          {domains.map(c=>{
+            const M=lead(c);
+            return (
+              <div key={c.branch} className="an-dom">
+                <span className="an-dom-pal">{c.palace.zh}<small>{lang==='en'?c.palace.en:c.palace.fr}</small></span>
+                <span className="an-dom-read">
+                  {M
+                    ? <React.Fragment><b style={{color:`var(--st-${M.color})`}}>{M.zh}</b>{lang==='en'?READINGS[c.majors[0]].en:READINGS[c.majors[0]].fr}</React.Fragment>
+                    : t.noMajor}
+                </span>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/* ---- panel switcher ---- */
+function ChartPanel({tab, chart, t, lang, activeBranch, onPick}){
+  if(tab==='stars')    return <StarsPanel chart={chart} t={t} lang={lang} activeBranch={activeBranch} onPick={onPick}/>;
+  if(tab==='palaces')  return <PalacesPanel chart={chart} t={t} lang={lang} activeBranch={activeBranch} onPick={onPick}/>;
+  if(tab==='elements') return <ElementsPanel chart={chart} t={t} lang={lang}/>;
+  if(tab==='analysis') return <AnalysisPanel chart={chart} t={t} lang={lang}/>;
+  return <OverviewPanel chart={chart} t={t} lang={lang} activeBranch={activeBranch}/>;
+}
+
+/* ---- the chart screen ---- */
+function ChartScreen({profile, profiles, t, lang, onBack, onSwitch, onMenu}){
+  const [activeBranch,setActiveBranch] = React.useState(null);
+  const [activeTab,setActiveTab] = React.useState('overview');
+  const [selOpen,setSelOpen] = React.useState(false);
+  const chart = React.useMemo(()=>buildChart(profile),[profile.id, profile.date, profile.time]);
+
+  React.useEffect(()=>{ setActiveBranch(null); setSelOpen(false); setActiveTab('overview'); },[profile.id]);
+
+  // tapping a palace on the board highlights it and shows its reading in Overview
+  function tapBranch(b){ setActiveBranch(prev=> prev===b ? null : b); setActiveTab('overview'); }
+
+  return (
+    <div className="screen screen-slide c-screen">
+      <StatusBar theme="light"/>
+      <StarField seed={chart.lifeBranch+3}/>
+      <div className="c-head">
+        <button className="ic-light" onClick={onBack} aria-label="back"><Back/></button>
+        <span className="ttl">M<span style={{fontSize:'.8em'}}>ING</span> P<span style={{fontSize:'.8em'}}>AN</span></span>
+        <button className="ic-light" onClick={onMenu} aria-label="menu"><DotsH/></button>
+      </div>
+
+      <div className="scroll">
+        <div className="c-emblem">
+          <Seal/>
+        </div>
+
+        <div className="c-selector">
+          <button className="sel-btn" onClick={()=>setSelOpen(o=>!o)}>
+            {profile.name}<span className="cv"><ChevronDown/></span>
+          </button>
+          {selOpen && (
+            <div className="sel-menu">
+              {profiles.map(p=>(
+                <button key={p.id} className={`sel-item ${p.id===profile.id?'on':''}`}
+                  onClick={()=>{onSwitch(p.id);setSelOpen(false);}}>{p.name}</button>
+              ))}
+            </div>
+          )}
+        </div>
+
+        <div className="c-info">
+          <div className="l1">{fmtDate(profile.date,lang)}<b>·</b>{fmtTime(profile.time,lang)}<b>·</b>{profile.place||'—'}</div>
+          <div className="l2">
+            {t.sexagenary}: <span className="zhh" style={{color:'var(--gold-soft)'}}>{chart.ganzhi}</span><b>·</b>
+            {t.hour}: <span className="zhh" style={{color:'var(--gold-soft)'}}>{chart.hourBranch}</span> ({chart.hourPinyin})
+          </div>
+        </div>
+
+        <div className="c-board">
+          <Board chart={chart} t={t} lang={lang} activeBranch={activeBranch} onTapBranch={tapBranch}/>
+        </div>
+
+        <ChartTabs t={t} active={activeTab} onSelect={setActiveTab}/>
+        <ChartPanel tab={activeTab} chart={chart} t={t} lang={lang} activeBranch={activeBranch} onPick={setActiveBranch}/>
+        <div className="home-ind dark"><i/></div>
+      </div>
+    </div>
+  );
+}
+
+Object.assign(window, { ChartScreen });
+
+/* =====================================================
+   Seal emblem (shared) + brand icons + Auth screen
+===================================================== */
+function Seal(){
+  return (
+    <div className="c-seal">
+      <span className="seal-ticks" aria-hidden="true"></span>
+      <span className="seal-sweep" aria-hidden="true"></span>
+      <span className="seal-glow" aria-hidden="true"></span>
+      <span className="seal-zh">紫微<br/>斗數</span>
+    </div>
+  );
+}
+
+const GoogleG = ({size=20}) => (
+  <svg width={size} height={size} viewBox="0 0 48 48" aria-hidden="true">
+    <path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/>
+    <path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/>
+    <path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/>
+    <path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/>
+  </svg>
+);
+const AppleLogo = ({size=20, color='#F1E7CF'}) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill={color} aria-hidden="true">
+    <path d="M16.36 1.43c0 1.06-.39 2.06-1.17 2.98-.94 1.09-2.07 1.72-3.3 1.62-.02-.13-.03-.27-.03-.4 0-1.02.45-2.12 1.23-3.01.4-.45.9-.83 1.5-1.13.6-.29 1.17-.45 1.71-.48.02.14.03.28.03.42zM20.9 17.06c-.33.76-.49 1.1-.91 1.77-.59.94-1.42 2.11-2.46 2.12-.92.01-1.16-.6-2.41-.59-1.25.01-1.51.6-2.43.59-1.04-.01-1.82-1.06-2.41-2-1.65-2.62-1.82-5.69-.8-7.32.72-1.16 1.86-1.84 2.93-1.84 1.09 0 1.78.6 2.68.6.87 0 1.4-.6 2.66-.6.95 0 1.96.52 2.68 1.42-2.35 1.29-1.97 4.64.21 5.68z"/>
+  </svg>
+);
+const Spinner = ({size=20, color='currentColor'}) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" className="spin-ic" aria-hidden="true">
+    <circle cx="12" cy="12" r="9" stroke={color} strokeOpacity="0.25" strokeWidth="2.4"/>
+    <path d="M21 12a9 9 0 0 0-9-9" stroke={color} strokeWidth="2.4" strokeLinecap="round"/>
+  </svg>
+);
+
+/* ---- Auth / sign-in screen ---- */
+function AuthScreen({t, lang, onAuth, onLang}){
+  const [mode,setMode]   = React.useState('signin');   // 'signin' | 'signup'
+  const [email,setEmail] = React.useState('');
+  const [pw,setPw]       = React.useState('');
+  const [name,setName]   = React.useState('');
+  const [err,setErr]     = React.useState({});
+  const [busy,setBusy]   = React.useState(null);        // 'google' | 'apple' | 'email' | null
+
+  const isSignup = mode==='signup';
+
+  function social(provider){
+    if(busy) return;
+    setBusy(provider);
+    // mock OAuth round-trip
+    setTimeout(()=>{
+      onAuth({
+        provider,
+        name: provider==='google' ? 'Google User' : 'Apple User',
+        email: provider==='google' ? 'you@gmail.com' : 'you@icloud.com',
+      });
+    }, 950);
+  }
+  function submitEmail(){
+    if(busy) return;
+    const e={};
+    if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) e.email=t.invalidEmail;
+    if(pw.length<6) e.pw=t.shortPw;
+    setErr(e);
+    if(Object.keys(e).length) return;
+    setBusy('email');
+    setTimeout(()=>{
+      onAuth({provider:'email', name: (isSignup && name.trim()) ? name.trim() : email.split('@')[0], email});
+    }, 700);
+  }
+
+  return (
+    <div className="screen auth-screen c-screen">
+      <StatusBar theme="light"/>
+      <StarField seed={11}/>
+      <button className="auth-lang" onClick={()=>onLang(lang==='en'?'fr':'en')}>{lang==='en'?'FR':'EN'}</button>
+      <div className="scroll auth-scroll">
+        <div className="auth-top">
+          <div className="c-emblem"><Seal/></div>
+          <h1 className="auth-wordmark">M<span>ING</span> P<span>AN</span></h1>
+          <div className="auth-subw">{t.subtitle}</div>
+          <p className="auth-tag">{t.authTag}</p>
+        </div>
+
+        <div className="auth-card">
+          <div className="auth-seg">
+            <button className={!isSignup?'on':''} onClick={()=>{setMode('signin');setErr({});}}>{t.modeSignIn}</button>
+            <button className={isSignup?'on':''} onClick={()=>{setMode('signup');setErr({});}}>{t.modeSignUp}</button>
+          </div>
+
+          <button className="social" onClick={()=>social('google')} disabled={!!busy}>
+            {busy==='google' ? <Spinner color="#F1E7CF"/> : <GoogleG/>}
+            <span>{busy==='google' ? t.connecting : t.continueGoogle}</span>
+          </button>
+          <button className="social" onClick={()=>social('apple')} disabled={!!busy}>
+            {busy==='apple' ? <Spinner color="#F1E7CF"/> : <AppleLogo/>}
+            <span>{busy==='apple' ? t.connecting : t.continueApple}</span>
+          </button>
+
+          <div className="auth-or"><span>{t.orEmail}</span></div>
+
+          {isSignup && (
+            <div className="auth-field">
+              <label>{t.fullName}</label>
+              <input value={name} placeholder={t.namePh2} onChange={e=>setName(e.target.value)}/>
+            </div>
+          )}
+          <div className="auth-field">
+            <label>{t.emailLabel}</label>
+            <input type="email" inputMode="email" autoCapitalize="none" className={err.email?'err':''}
+              value={email} placeholder={t.emailPh} onChange={e=>setEmail(e.target.value)}/>
+            {err.email && <div className="hint">{err.email}</div>}
+          </div>
+          <div className="auth-field">
+            <label>{t.passwordLabel}</label>
+            <input type="password" className={err.pw?'err':''} value={pw} placeholder={t.passwordPh}
+              onChange={e=>setPw(e.target.value)} onKeyDown={e=>{if(e.key==='Enter')submitEmail();}}/>
+            {err.pw && <div className="hint">{err.pw}</div>}
+          </div>
+          {!isSignup && <button className="auth-forgot" type="button">{t.forgot}</button>}
+
+          <button className="auth-primary" onClick={submitEmail} disabled={busy==='email'}>
+            {busy==='email' ? <Spinner color="#241B3D"/> : (isSignup ? t.doSignUp : t.doSignIn)}
+          </button>
+
+          <p className="auth-legal">{t.legal}</p>
+        </div>
+        <div className="home-ind dark"><i/></div>
+      </div>
+    </div>
+  );
+}
+
+Object.assign(window, { Seal, AuthScreen });
+
+
+
+
+/* ===== app.jsx ===== */
+/* =====================================================
+   app.jsx — root state, routing, localStorage persistence
+===================================================== */
+const { useState, useEffect } = React;
+const LS_PROFILES = 'mingpan.profiles.v1';
+const LS_LANG     = 'mingpan.lang.v1';
+const LS_SELECTED = 'mingpan.selected.v1';
+const LS_AUTH     = 'mingpan.auth.v1';
+
+function loadAuth(){
+  try{ const raw=localStorage.getItem(LS_AUTH); if(raw) return JSON.parse(raw); }catch(e){}
+  return null;
+}
+
+function loadProfiles(){
+  try{
+    const raw = localStorage.getItem(LS_PROFILES);
+    if(raw){ const arr=JSON.parse(raw); if(Array.isArray(arr)) return arr; }
+  }catch(e){}
+  return SAMPLE_PROFILES.slice();
+}
+const uid = () => 'p'+Date.now().toString(36)+Math.random().toString(36).slice(2,6);
+
+function App(){
+  const [profiles,setProfiles] = useState(loadProfiles);
+  const [lang,setLang] = useState(()=> localStorage.getItem(LS_LANG) || 'en');
+  const [auth,setAuth] = useState(loadAuth);
+  const [screen,setScreen] = useState('profiles');          // 'profiles' | 'chart'
+  const [selectedId,setSelectedId] = useState(()=> localStorage.getItem(LS_SELECTED) || null);
+  const [overlay,setOverlay] = useState(null);  // {type:'sheet',edit?} | {type:'rowmenu',id} | {type:'settings'}
+
+  const t = I18N[lang];
+
+  /* persistence */
+  useEffect(()=>{ try{localStorage.setItem(LS_PROFILES, JSON.stringify(profiles));}catch(e){} },[profiles]);
+  useEffect(()=>{ localStorage.setItem(LS_LANG, lang); document.documentElement.lang=lang; },[lang]);
+  useEffect(()=>{ if(selectedId) localStorage.setItem(LS_SELECTED, selectedId); },[selectedId]);
+  useEffect(()=>{ try{ auth ? localStorage.setItem(LS_AUTH, JSON.stringify(auth)) : localStorage.removeItem(LS_AUTH); }catch(e){} },[auth]);
+
+  function signIn(user){ setAuth(user); setScreen('profiles'); }
+  function signOut(){ setAuth(null); setOverlay(null); setScreen('profiles'); }
+
+  const selected = profiles.find(p=>p.id===selectedId) || null;
+
+  /* navigation */
+  function openChart(id){
+    setSelectedId(id);
+    setOverlay(null);
+    setScreen('chart');
+  }
+  function goProfiles(){ setScreen('profiles'); }
+  function goChartTab(){
+    if(selected) setScreen('chart');
+    else if(profiles[0]){ setSelectedId(profiles[0].id); setScreen('chart'); }
+  }
+
+  /* CRUD */
+  function saveProfile(data){
+    if(data.id){
+      setProfiles(ps=>ps.map(p=>p.id===data.id?{...p,...data}:p));
+    }else{
+      const np={...data, id:uid()};
+      setProfiles(ps=>[...ps,np]);
+      setSelectedId(np.id);
+    }
+    setOverlay(null);
+  }
+  function deleteProfile(id){
+    setProfiles(ps=>ps.filter(p=>p.id!==id));
+    if(selectedId===id){
+      const rest = profiles.filter(p=>p.id!==id);
+      setSelectedId(rest[0]?.id || null);
+      if(rest.length===0) setScreen('profiles');
+    }
+    setOverlay(null);
+  }
+
+  const menuProfile = overlay?.type==='rowmenu' ? profiles.find(p=>p.id===overlay.id) : null;
+
+  /* not signed in — show the auth portal */
+  if(!auth){
+    return (
+      <div className="phone">
+        <AuthScreen t={t} lang={lang} onAuth={signIn} onLang={setLang}/>
+      </div>
+    );
+  }
+
+  return (
+    <div className="phone">
+      {screen==='profiles' && (
+        <ProfilesScreen
+          profiles={profiles} t={t} lang={lang}
+          onOpenChart={openChart}
+          onAdd={()=>setOverlay({type:'sheet'})}
+          onRowMenu={(id)=>setOverlay({type:'rowmenu',id})}
+          onSettings={()=>setOverlay({type:'settings'})}
+        />
+      )}
+      {screen==='chart' && selected && (
+        <ChartScreen
+          key={selected.id}
+          profile={selected} profiles={profiles} t={t} lang={lang}
+          onBack={goProfiles}
+          onSwitch={(id)=>setSelectedId(id)}
+          onMenu={()=>setOverlay({type:'rowmenu',id:selected.id})}
+        />
+      )}
+
+      {screen==='profiles' && (
+        <BottomNav active="profiles" t={t}
+          onProfiles={goProfiles} onChart={goChartTab}
+          canChart={profiles.length>0}/>
+      )}
+
+      {/* overlays */}
+      {overlay?.type==='sheet' && (
+        <ProfileSheet init={overlay.edit||null} t={t}
+          onClose={()=>setOverlay(null)} onSave={saveProfile} onDelete={deleteProfile}/>
+      )}
+      {overlay?.type==='settings' && (
+        <SettingsSheet t={t} lang={lang} onLang={setLang} auth={auth} onSignOut={signOut} onClose={()=>setOverlay(null)}/>
+      )}
+      {overlay?.type==='rowmenu' && menuProfile && (
+        <RowMenu p={menuProfile} t={t} lang={lang}
+          onClose={()=>setOverlay(null)}
+          onOpen={()=>openChart(menuProfile.id)}
+          onEdit={()=>setOverlay({type:'sheet', edit:menuProfile})}
+          onDelete={()=>deleteProfile(menuProfile.id)}/>
+      )}
+    </div>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById('root')).render(<App/>);
+
+</script>
+</body>
+</html>
