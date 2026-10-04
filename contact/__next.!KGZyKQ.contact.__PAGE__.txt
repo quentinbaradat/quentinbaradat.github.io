@@ -1,0 +1,36 @@
+1:"$Sreact.fragment"
+2:I[81994,["/_next/static/chunks/0p7opmh-n6x8g.js","/_next/static/chunks/3-0qwy_3o1_-n.js","/_next/static/chunks/37tjau57gwe9o.js","/_next/static/chunks/17ci8q2xf_gzq.js"],"RevealText"]
+3:I[21115,["/_next/static/chunks/0p7opmh-n6x8g.js","/_next/static/chunks/3-0qwy_3o1_-n.js","/_next/static/chunks/37tjau57gwe9o.js","/_next/static/chunks/17ci8q2xf_gzq.js"],"QuoteForm"]
+4:I[97367,["/_next/static/chunks/453cd1tlxz5wi.js"],"OutletBoundary"]
+5:"$Sreact.suspense"
+9:I[97367,["/_next/static/chunks/453cd1tlxz5wi.js"],"ViewportBoundary"]
+a:I[97367,["/_next/static/chunks/453cd1tlxz5wi.js"],"MetadataBoundary"]
+8:X
+1b:X
+1b:C
+0:{"buildId":"iDiD-nd8--dJelI-xtMUb","data":[{"rsc":["$","$1","c",{"children":[[["$","section",null,{"className":"container-x flex flex-col gap-6 pb-12 pt-[calc(var(--header-h)+3rem)] md:pb-16 md:pt-[calc(var(--header-h)+5rem)]","children":[["$","div",null,{"className":"font-label flex items-center gap-4 text-muted","children":[["$","span",null,{"className":"flex items-center gap-1","aria-hidden":true,"children":[["$","span",null,{"className":"h-2.5 w-2.5 rounded-full border border-fg"}],["$","span",null,{"className":"h-2 w-2 rounded-full border border-yellow"}],["$","span",null,{"className":"h-1.5 w-1.5 rounded-full border border-cyan"}]]}],["$","span",null,{"className":"tabular-nums","children":"06"}],["$","span",null,{"className":"h-px w-8 bg-line"}],["$","span",null,{"children":"Contact"}]]}],["$","$L2",null,{"as":"h1","className":"font-display text-display-xl","type":"chars","delay":0.3,"children":"Demander un devis"}],["$","$L2",null,{"as":"p","className":"text-lead max-w-2xl text-muted","delay":0.5,"children":"Parlez-moi de votre projet. Je reviens vers vous rapidement avec une proposition sur mesure."}]]}],["$","section",null,{"className":"container-x grid gap-16 pb-[var(--section)] lg:grid-cols-12 lg:gap-8","children":[["$","div",null,{"className":"lg:col-span-7","children":["$","$L3",null,{}]}],["$","aside",null,{"className":"flex flex-col gap-8 border-t border-line pt-8 lg:col-span-4 lg:col-start-9 lg:border-t-0 lg:pt-2","children":[["$","span",null,{"className":"font-label text-muted","children":"Ou directement"}],["$","ul",null,{"className":"flex flex-col gap-6","children":[["$","li","E-mail",{"children":["$","a",null,{"href":"mailto:contact@olo-production.fr","data-cursor":"cta","className":"group flex flex-col gap-1","children":[["$","span",null,{"className":"font-label text-muted-2","children":"E-mail"}],["$","span",null,{"className":"font-display break-words text-[clamp(1.3rem,2vw,2rem)] text-fg transition-colors duration-300 group-hover:text-cyan","children":"contact@olo-production.fr"}]]}]}],["$","li","Téléphone",{"children":["$","a",null,{"href":"tel:+33647793357","data-cursor":"cta","className":"group flex flex-col gap-1","children":[["$","span",null,{"className":"font-label text-muted-2","children":"Téléphone"}],["$","span",null,{"className":"font-display break-words text-[clamp(1.3rem,2vw,2rem)] text-fg transition-colors duration-300 group-hover:text-cyan","children":"+33 6 47 79 33 57"}]]}]}],["$","li","Instagram",{"children":["$","a",null,{"href":"https://www.instagram.com/olo_shots/","target":"_blank","rel":"noreferrer","data-cursor":"cta","className":"group flex flex-col gap-1","children":[["$","span",null,{"className":"font-label text-muted-2","children":"Instagram"}],["$","span",null,{"className":"font-display break-words text-[clamp(1.3rem,2vw,2rem)] text-fg transition-colors duration-300 group-hover:text-cyan","children":"@olo_shots"}]]}]}]]}],["$","p",null,{"className":"text-sm text-muted","children":"Basé à Angers — déplacements partout en France et à l'étranger."}]]}]]}]],[["$","script","script-0",{"src":"/_next/static/chunks/17ci8q2xf_gzq.js","async":true}]],["$","$L4",null,{"children":["$","$5",null,{"name":"Next.MetadataOutlet","children":"$@6"}]}]]}],"isPartial":"$@7","staleTime":"$8","varyParams":null},{"rsc":["$","$1","h",{"children":[null,["$","$L9",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}],["$","meta","2",{"name":"theme-color","content":"#0a0a0a"}]]}],["$","div",null,{"hidden":true,"children":["$","$La",null,{"children":["$","$5",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"Demander un devis — Vidéaste & photographe à Angers — Olo Production"}],["$","meta","1",{"name":"description","content":"Un teaser, un aftermovie, une publicité, un mariage ? Décrivez votre projet et recevez une proposition sur mesure d'Olo Production, à Angers et partout en France."}],["$","meta","2",{"name":"keywords","content":"vidéaste Angers,photographe Angers,vidéo événementielle Angers,aftermovie,teaser,publicité vidéo,mariage"}],["$","meta","3",{"name":"robots","content":"index, follow"}],["$","link","4",{"rel":"canonical","href":"https://quentinbaradat.github.io/contact/"}],"$Lb","$Lc","$Ld","$Le","$Lf","$L10","$L11","$L12","$L13","$L14","$L15","$L16"]}]}]}],"$L17"]}],"isPartial":"$@18","staleTime":"$8","varyParams":null},{"rsc":"$L19","isPartial":"$@1a","staleTime":"$8","varyParams":"$1b"}],"isUpgradeableISRFallback":false,"a":"$@1c","rootVaryParams":null,"needsRuntimeRequest":"$@1d"}
+1e:I[27201,["/_next/static/chunks/453cd1tlxz5wi.js"],"IconMark"]
+1f:I[39756,["/_next/static/chunks/453cd1tlxz5wi.js"],"default"]
+20:I[37457,["/_next/static/chunks/453cd1tlxz5wi.js"],"default"]
+6:null
+b:["$","link","5",{"rel":"alternate","hrefLang":"fr","href":"https://quentinbaradat.github.io/contact/"}]
+c:["$","link","6",{"rel":"alternate","hrefLang":"en","href":"https://quentinbaradat.github.io/en/contact/"}]
+d:["$","link","7",{"rel":"alternate","hrefLang":"x-default","href":"https://quentinbaradat.github.io/contact/"}]
+e:["$","meta","8",{"property":"og:title","content":"Demander un devis — Vidéaste & photographe à Angers"}]
+f:["$","meta","9",{"property":"og:description","content":"Un teaser, un aftermovie, une publicité, un mariage ? Décrivez votre projet et recevez une proposition sur mesure d'Olo Production, à Angers et partout en France."}]
+10:["$","meta","10",{"property":"og:url","content":"https://quentinbaradat.github.io/contact/"}]
+11:["$","meta","11",{"property":"og:locale","content":"fr_FR"}]
+12:["$","meta","12",{"name":"twitter:card","content":"summary_large_image"}]
+13:["$","meta","13",{"name":"twitter:title","content":"Demander un devis — Vidéaste & photographe à Angers"}]
+14:["$","meta","14",{"name":"twitter:description","content":"Un teaser, un aftermovie, une publicité, un mariage ? Décrivez votre projet et recevez une proposition sur mesure d'Olo Production, à Angers et partout en France."}]
+15:["$","link","15",{"rel":"icon","href":"/icon.svg?icon.2i64918132w6f.svg","sizes":"any","type":"image/svg+xml"}]
+16:["$","$L1e","16",{}]
+17:["$","meta",null,{"name":"next-size-adjust","content":""}]
+19:["$","$1","c",{"children":[null,["$","$L1f",null,{"parallelRouterKey":"children","template":["$","$L20",null,{}]}]]}]
+1d:true
+8:300
+8:C
+1c:0
+18:"$undefined"
+1a:"$undefined"
+7:"$undefined"

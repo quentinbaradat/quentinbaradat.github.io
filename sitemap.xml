@@ -1,27 +1,309 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
 <url>
 <loc>https://quentinbaradat.github.io/</loc>
-<lastmod>2026-10-04T08:53:27.913Z</lastmod>
-<changefreq>monthly</changefreq>
+<xhtml:link rel="alternate" hreflang="fr" href="https://quentinbaradat.github.io/" />
+<xhtml:link rel="alternate" hreflang="en" href="https://quentinbaradat.github.io/en/" />
+<xhtml:link rel="alternate" hreflang="x-default" href="https://quentinbaradat.github.io/" />
+<lastmod>2026-10-04T14:23:44.231Z</lastmod>
+<changefreq>weekly</changefreq>
 <priority>1</priority>
 </url>
 <url>
+<loc>https://quentinbaradat.github.io/en/</loc>
+<xhtml:link rel="alternate" hreflang="fr" href="https://quentinbaradat.github.io/" />
+<xhtml:link rel="alternate" hreflang="en" href="https://quentinbaradat.github.io/en/" />
+<xhtml:link rel="alternate" hreflang="x-default" href="https://quentinbaradat.github.io/" />
+<lastmod>2026-10-04T14:23:44.231Z</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.9</priority>
+</url>
+<url>
 <loc>https://quentinbaradat.github.io/videos/</loc>
-<lastmod>2026-10-04T08:53:27.913Z</lastmod>
-<changefreq>monthly</changefreq>
+<xhtml:link rel="alternate" hreflang="fr" href="https://quentinbaradat.github.io/videos/" />
+<xhtml:link rel="alternate" hreflang="en" href="https://quentinbaradat.github.io/en/videos/" />
+<xhtml:link rel="alternate" hreflang="x-default" href="https://quentinbaradat.github.io/videos/" />
+<lastmod>2026-10-04T14:23:44.231Z</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.9</priority>
+</url>
+<url>
+<loc>https://quentinbaradat.github.io/en/videos/</loc>
+<xhtml:link rel="alternate" hreflang="fr" href="https://quentinbaradat.github.io/videos/" />
+<xhtml:link rel="alternate" hreflang="en" href="https://quentinbaradat.github.io/en/videos/" />
+<xhtml:link rel="alternate" hreflang="x-default" href="https://quentinbaradat.github.io/videos/" />
+<lastmod>2026-10-04T14:23:44.231Z</lastmod>
+<changefreq>weekly</changefreq>
 <priority>0.8</priority>
 </url>
 <url>
 <loc>https://quentinbaradat.github.io/photos/</loc>
-<lastmod>2026-10-04T08:53:27.913Z</lastmod>
+<xhtml:link rel="alternate" hreflang="fr" href="https://quentinbaradat.github.io/photos/" />
+<xhtml:link rel="alternate" hreflang="en" href="https://quentinbaradat.github.io/en/photos/" />
+<xhtml:link rel="alternate" hreflang="x-default" href="https://quentinbaradat.github.io/photos/" />
+<lastmod>2026-10-04T14:23:44.231Z</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.8</priority>
 </url>
 <url>
+<loc>https://quentinbaradat.github.io/en/photos/</loc>
+<xhtml:link rel="alternate" hreflang="fr" href="https://quentinbaradat.github.io/photos/" />
+<xhtml:link rel="alternate" hreflang="en" href="https://quentinbaradat.github.io/en/photos/" />
+<xhtml:link rel="alternate" hreflang="x-default" href="https://quentinbaradat.github.io/photos/" />
+<lastmod>2026-10-04T14:23:44.231Z</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.7000000000000001</priority>
+</url>
+<url>
 <loc>https://quentinbaradat.github.io/qui-suis-je/</loc>
-<lastmod>2026-10-04T08:53:27.913Z</lastmod>
+<xhtml:link rel="alternate" hreflang="fr" href="https://quentinbaradat.github.io/qui-suis-je/" />
+<xhtml:link rel="alternate" hreflang="en" href="https://quentinbaradat.github.io/en/qui-suis-je/" />
+<xhtml:link rel="alternate" hreflang="x-default" href="https://quentinbaradat.github.io/qui-suis-je/" />
+<lastmod>2026-10-04T14:23:44.231Z</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>https://quentinbaradat.github.io/en/qui-suis-je/</loc>
+<xhtml:link rel="alternate" hreflang="fr" href="https://quentinbaradat.github.io/qui-suis-je/" />
+<xhtml:link rel="alternate" hreflang="en" href="https://quentinbaradat.github.io/en/qui-suis-je/" />
+<xhtml:link rel="alternate" hreflang="x-default" href="https://quentinbaradat.github.io/qui-suis-je/" />
+<lastmod>2026-10-04T14:23:44.231Z</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.6</priority>
+</url>
+<url>
+<loc>https://quentinbaradat.github.io/contact/</loc>
+<xhtml:link rel="alternate" hreflang="fr" href="https://quentinbaradat.github.io/contact/" />
+<xhtml:link rel="alternate" hreflang="en" href="https://quentinbaradat.github.io/en/contact/" />
+<xhtml:link rel="alternate" hreflang="x-default" href="https://quentinbaradat.github.io/contact/" />
+<lastmod>2026-10-04T14:23:44.231Z</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.9</priority>
+</url>
+<url>
+<loc>https://quentinbaradat.github.io/en/contact/</loc>
+<xhtml:link rel="alternate" hreflang="fr" href="https://quentinbaradat.github.io/contact/" />
+<xhtml:link rel="alternate" hreflang="en" href="https://quentinbaradat.github.io/en/contact/" />
+<xhtml:link rel="alternate" hreflang="x-default" href="https://quentinbaradat.github.io/contact/" />
+<lastmod>2026-10-04T14:23:44.231Z</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.8</priority>
+</url>
+<url>
+<loc>https://quentinbaradat.github.io/videos/bal-du-chateau-d-angers/</loc>
+<xhtml:link rel="alternate" hreflang="fr" href="https://quentinbaradat.github.io/videos/bal-du-chateau-d-angers/" />
+<xhtml:link rel="alternate" hreflang="en" href="https://quentinbaradat.github.io/en/videos/bal-du-chateau-d-angers/" />
+<xhtml:link rel="alternate" hreflang="x-default" href="https://quentinbaradat.github.io/videos/bal-du-chateau-d-angers/" />
+<lastmod>2026-10-04T14:23:44.231Z</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.6</priority>
+</url>
+<url>
+<loc>https://quentinbaradat.github.io/en/videos/bal-du-chateau-d-angers/</loc>
+<xhtml:link rel="alternate" hreflang="fr" href="https://quentinbaradat.github.io/videos/bal-du-chateau-d-angers/" />
+<xhtml:link rel="alternate" hreflang="en" href="https://quentinbaradat.github.io/en/videos/bal-du-chateau-d-angers/" />
+<xhtml:link rel="alternate" hreflang="x-default" href="https://quentinbaradat.github.io/videos/bal-du-chateau-d-angers/" />
+<lastmod>2026-10-04T14:23:44.231Z</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.5</priority>
+</url>
+<url>
+<loc>https://quentinbaradat.github.io/videos/miss-france-2026/</loc>
+<xhtml:link rel="alternate" hreflang="fr" href="https://quentinbaradat.github.io/videos/miss-france-2026/" />
+<xhtml:link rel="alternate" hreflang="en" href="https://quentinbaradat.github.io/en/videos/miss-france-2026/" />
+<xhtml:link rel="alternate" hreflang="x-default" href="https://quentinbaradat.github.io/videos/miss-france-2026/" />
+<lastmod>2026-10-04T14:23:44.231Z</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.6</priority>
+</url>
+<url>
+<loc>https://quentinbaradat.github.io/en/videos/miss-france-2026/</loc>
+<xhtml:link rel="alternate" hreflang="fr" href="https://quentinbaradat.github.io/videos/miss-france-2026/" />
+<xhtml:link rel="alternate" hreflang="en" href="https://quentinbaradat.github.io/en/videos/miss-france-2026/" />
+<xhtml:link rel="alternate" hreflang="x-default" href="https://quentinbaradat.github.io/videos/miss-france-2026/" />
+<lastmod>2026-10-04T14:23:44.231Z</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.5</priority>
+</url>
+<url>
+<loc>https://quentinbaradat.github.io/videos/teaser-bal-des-pompiers-angevins-2025/</loc>
+<xhtml:link rel="alternate" hreflang="fr" href="https://quentinbaradat.github.io/videos/teaser-bal-des-pompiers-angevins-2025/" />
+<xhtml:link rel="alternate" hreflang="en" href="https://quentinbaradat.github.io/en/videos/teaser-bal-des-pompiers-angevins-2025/" />
+<xhtml:link rel="alternate" hreflang="x-default" href="https://quentinbaradat.github.io/videos/teaser-bal-des-pompiers-angevins-2025/" />
+<lastmod>2026-10-04T14:23:44.231Z</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.6</priority>
+</url>
+<url>
+<loc>https://quentinbaradat.github.io/en/videos/teaser-bal-des-pompiers-angevins-2025/</loc>
+<xhtml:link rel="alternate" hreflang="fr" href="https://quentinbaradat.github.io/videos/teaser-bal-des-pompiers-angevins-2025/" />
+<xhtml:link rel="alternate" hreflang="en" href="https://quentinbaradat.github.io/en/videos/teaser-bal-des-pompiers-angevins-2025/" />
+<xhtml:link rel="alternate" hreflang="x-default" href="https://quentinbaradat.github.io/videos/teaser-bal-des-pompiers-angevins-2025/" />
+<lastmod>2026-10-04T14:23:44.231Z</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.5</priority>
+</url>
+<url>
+<loc>https://quentinbaradat.github.io/videos/mariage-pierre-et-johanna/</loc>
+<xhtml:link rel="alternate" hreflang="fr" href="https://quentinbaradat.github.io/videos/mariage-pierre-et-johanna/" />
+<xhtml:link rel="alternate" hreflang="en" href="https://quentinbaradat.github.io/en/videos/mariage-pierre-et-johanna/" />
+<xhtml:link rel="alternate" hreflang="x-default" href="https://quentinbaradat.github.io/videos/mariage-pierre-et-johanna/" />
+<lastmod>2026-10-04T14:23:44.231Z</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.6</priority>
+</url>
+<url>
+<loc>https://quentinbaradat.github.io/en/videos/mariage-pierre-et-johanna/</loc>
+<xhtml:link rel="alternate" hreflang="fr" href="https://quentinbaradat.github.io/videos/mariage-pierre-et-johanna/" />
+<xhtml:link rel="alternate" hreflang="en" href="https://quentinbaradat.github.io/en/videos/mariage-pierre-et-johanna/" />
+<xhtml:link rel="alternate" hreflang="x-default" href="https://quentinbaradat.github.io/videos/mariage-pierre-et-johanna/" />
+<lastmod>2026-10-04T14:23:44.231Z</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.5</priority>
+</url>
+<url>
+<loc>https://quentinbaradat.github.io/videos/bmw-m2/</loc>
+<xhtml:link rel="alternate" hreflang="fr" href="https://quentinbaradat.github.io/videos/bmw-m2/" />
+<xhtml:link rel="alternate" hreflang="en" href="https://quentinbaradat.github.io/en/videos/bmw-m2/" />
+<xhtml:link rel="alternate" hreflang="x-default" href="https://quentinbaradat.github.io/videos/bmw-m2/" />
+<lastmod>2026-10-04T14:23:44.231Z</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.6</priority>
+</url>
+<url>
+<loc>https://quentinbaradat.github.io/en/videos/bmw-m2/</loc>
+<xhtml:link rel="alternate" hreflang="fr" href="https://quentinbaradat.github.io/videos/bmw-m2/" />
+<xhtml:link rel="alternate" hreflang="en" href="https://quentinbaradat.github.io/en/videos/bmw-m2/" />
+<xhtml:link rel="alternate" hreflang="x-default" href="https://quentinbaradat.github.io/videos/bmw-m2/" />
+<lastmod>2026-10-04T14:23:44.231Z</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.5</priority>
+</url>
+<url>
+<loc>https://quentinbaradat.github.io/videos/restaurant-la-reserve/</loc>
+<xhtml:link rel="alternate" hreflang="fr" href="https://quentinbaradat.github.io/videos/restaurant-la-reserve/" />
+<xhtml:link rel="alternate" hreflang="en" href="https://quentinbaradat.github.io/en/videos/restaurant-la-reserve/" />
+<xhtml:link rel="alternate" hreflang="x-default" href="https://quentinbaradat.github.io/videos/restaurant-la-reserve/" />
+<lastmod>2026-10-04T14:23:44.231Z</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.6</priority>
+</url>
+<url>
+<loc>https://quentinbaradat.github.io/en/videos/restaurant-la-reserve/</loc>
+<xhtml:link rel="alternate" hreflang="fr" href="https://quentinbaradat.github.io/videos/restaurant-la-reserve/" />
+<xhtml:link rel="alternate" hreflang="en" href="https://quentinbaradat.github.io/en/videos/restaurant-la-reserve/" />
+<xhtml:link rel="alternate" hreflang="x-default" href="https://quentinbaradat.github.io/videos/restaurant-la-reserve/" />
+<lastmod>2026-10-04T14:23:44.231Z</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.5</priority>
+</url>
+<url>
+<loc>https://quentinbaradat.github.io/videos/quiz-room/</loc>
+<xhtml:link rel="alternate" hreflang="fr" href="https://quentinbaradat.github.io/videos/quiz-room/" />
+<xhtml:link rel="alternate" hreflang="en" href="https://quentinbaradat.github.io/en/videos/quiz-room/" />
+<xhtml:link rel="alternate" hreflang="x-default" href="https://quentinbaradat.github.io/videos/quiz-room/" />
+<lastmod>2026-10-04T14:23:44.231Z</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.6</priority>
+</url>
+<url>
+<loc>https://quentinbaradat.github.io/en/videos/quiz-room/</loc>
+<xhtml:link rel="alternate" hreflang="fr" href="https://quentinbaradat.github.io/videos/quiz-room/" />
+<xhtml:link rel="alternate" hreflang="en" href="https://quentinbaradat.github.io/en/videos/quiz-room/" />
+<xhtml:link rel="alternate" hreflang="x-default" href="https://quentinbaradat.github.io/videos/quiz-room/" />
+<lastmod>2026-10-04T14:23:44.231Z</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.5</priority>
+</url>
+<url>
+<loc>https://quentinbaradat.github.io/videos/aftermovie-bal-des-pompiers-angevins-2025/</loc>
+<xhtml:link rel="alternate" hreflang="fr" href="https://quentinbaradat.github.io/videos/aftermovie-bal-des-pompiers-angevins-2025/" />
+<xhtml:link rel="alternate" hreflang="en" href="https://quentinbaradat.github.io/en/videos/aftermovie-bal-des-pompiers-angevins-2025/" />
+<xhtml:link rel="alternate" hreflang="x-default" href="https://quentinbaradat.github.io/videos/aftermovie-bal-des-pompiers-angevins-2025/" />
+<lastmod>2026-10-04T14:23:44.231Z</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.6</priority>
+</url>
+<url>
+<loc>https://quentinbaradat.github.io/en/videos/aftermovie-bal-des-pompiers-angevins-2025/</loc>
+<xhtml:link rel="alternate" hreflang="fr" href="https://quentinbaradat.github.io/videos/aftermovie-bal-des-pompiers-angevins-2025/" />
+<xhtml:link rel="alternate" hreflang="en" href="https://quentinbaradat.github.io/en/videos/aftermovie-bal-des-pompiers-angevins-2025/" />
+<xhtml:link rel="alternate" hreflang="x-default" href="https://quentinbaradat.github.io/videos/aftermovie-bal-des-pompiers-angevins-2025/" />
+<lastmod>2026-10-04T14:23:44.231Z</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.5</priority>
+</url>
+<url>
+<loc>https://quentinbaradat.github.io/videos/run-and-brunch/</loc>
+<xhtml:link rel="alternate" hreflang="fr" href="https://quentinbaradat.github.io/videos/run-and-brunch/" />
+<xhtml:link rel="alternate" hreflang="en" href="https://quentinbaradat.github.io/en/videos/run-and-brunch/" />
+<xhtml:link rel="alternate" hreflang="x-default" href="https://quentinbaradat.github.io/videos/run-and-brunch/" />
+<lastmod>2026-10-04T14:23:44.231Z</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.6</priority>
+</url>
+<url>
+<loc>https://quentinbaradat.github.io/en/videos/run-and-brunch/</loc>
+<xhtml:link rel="alternate" hreflang="fr" href="https://quentinbaradat.github.io/videos/run-and-brunch/" />
+<xhtml:link rel="alternate" hreflang="en" href="https://quentinbaradat.github.io/en/videos/run-and-brunch/" />
+<xhtml:link rel="alternate" hreflang="x-default" href="https://quentinbaradat.github.io/videos/run-and-brunch/" />
+<lastmod>2026-10-04T14:23:44.231Z</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.5</priority>
+</url>
+<url>
+<loc>https://quentinbaradat.github.io/videos/octobre-rose/</loc>
+<xhtml:link rel="alternate" hreflang="fr" href="https://quentinbaradat.github.io/videos/octobre-rose/" />
+<xhtml:link rel="alternate" hreflang="en" href="https://quentinbaradat.github.io/en/videos/octobre-rose/" />
+<xhtml:link rel="alternate" hreflang="x-default" href="https://quentinbaradat.github.io/videos/octobre-rose/" />
+<lastmod>2026-10-04T14:23:44.231Z</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.6</priority>
+</url>
+<url>
+<loc>https://quentinbaradat.github.io/en/videos/octobre-rose/</loc>
+<xhtml:link rel="alternate" hreflang="fr" href="https://quentinbaradat.github.io/videos/octobre-rose/" />
+<xhtml:link rel="alternate" hreflang="en" href="https://quentinbaradat.github.io/en/videos/octobre-rose/" />
+<xhtml:link rel="alternate" hreflang="x-default" href="https://quentinbaradat.github.io/videos/octobre-rose/" />
+<lastmod>2026-10-04T14:23:44.231Z</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.5</priority>
+</url>
+<url>
+<loc>https://quentinbaradat.github.io/videos/jbl-tour-one-m3/</loc>
+<xhtml:link rel="alternate" hreflang="fr" href="https://quentinbaradat.github.io/videos/jbl-tour-one-m3/" />
+<xhtml:link rel="alternate" hreflang="en" href="https://quentinbaradat.github.io/en/videos/jbl-tour-one-m3/" />
+<xhtml:link rel="alternate" hreflang="x-default" href="https://quentinbaradat.github.io/videos/jbl-tour-one-m3/" />
+<lastmod>2026-10-04T14:23:44.231Z</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.6</priority>
+</url>
+<url>
+<loc>https://quentinbaradat.github.io/en/videos/jbl-tour-one-m3/</loc>
+<xhtml:link rel="alternate" hreflang="fr" href="https://quentinbaradat.github.io/videos/jbl-tour-one-m3/" />
+<xhtml:link rel="alternate" hreflang="en" href="https://quentinbaradat.github.io/en/videos/jbl-tour-one-m3/" />
+<xhtml:link rel="alternate" hreflang="x-default" href="https://quentinbaradat.github.io/videos/jbl-tour-one-m3/" />
+<lastmod>2026-10-04T14:23:44.231Z</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.5</priority>
+</url>
+<url>
+<loc>https://quentinbaradat.github.io/videos/anniversaire-de-mariage/</loc>
+<xhtml:link rel="alternate" hreflang="fr" href="https://quentinbaradat.github.io/videos/anniversaire-de-mariage/" />
+<xhtml:link rel="alternate" hreflang="en" href="https://quentinbaradat.github.io/en/videos/anniversaire-de-mariage/" />
+<xhtml:link rel="alternate" hreflang="x-default" href="https://quentinbaradat.github.io/videos/anniversaire-de-mariage/" />
+<lastmod>2026-10-04T14:23:44.231Z</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.6</priority>
+</url>
+<url>
+<loc>https://quentinbaradat.github.io/en/videos/anniversaire-de-mariage/</loc>
+<xhtml:link rel="alternate" hreflang="fr" href="https://quentinbaradat.github.io/videos/anniversaire-de-mariage/" />
+<xhtml:link rel="alternate" hreflang="en" href="https://quentinbaradat.github.io/en/videos/anniversaire-de-mariage/" />
+<xhtml:link rel="alternate" hreflang="x-default" href="https://quentinbaradat.github.io/videos/anniversaire-de-mariage/" />
+<lastmod>2026-10-04T14:23:44.231Z</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.5</priority>
 </url>
 </urlset>
